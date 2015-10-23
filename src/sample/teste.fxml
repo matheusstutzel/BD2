@@ -1,21 +1,44 @@
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<GridPane xmlns:fx="http://javafx.com/fxml"
-          fx:controller="sample.Teste" alignment="center" hgap="10" vgap="10">
-    <Label GridPane.columnIndex="1" GridPane.rowIndex="1" text="Digite o nome da tabela" fx:id="txt"/>
-    <TextField
-            GridPane.columnIndex="1"
-            GridPane.rowIndex="2"
-            fx:id="textField"/>
+<GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="center" hgap="10" maxHeight="-Infinity" maxWidth="-Infinity"
+          minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" vgap="10"
+          xmlns="http://javafx.com/javafx/8" fx:controller="sample.Teste">
+    <children>
+        <Label fx:id="txt" text="Digite o nome da tabela" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+        <GridPane hgap="10.0" vgap="10.0" GridPane.columnIndex="1" GridPane.columnSpan="2147483647"
+                  GridPane.rowIndex="2">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints/>
+            </rowConstraints>
+            <children>
+                <TextField fx:id="textField" text="Tabela"/>
+                <TextField fx:id="limit" text="Limite" GridPane.columnIndex="1"/>
+            </children>
+        </GridPane>
 
-    <Button
-            GridPane.columnIndex="1"
-            GridPane.rowIndex="5"
-            text=
-                    "Select" onAction=
-                    "#sayHelloWorld"/>
+        <Button defaultButton="true" onAction="#sayHelloWorld" text="Select" GridPane.columnIndex="1"
+                GridPane.rowIndex="5"/>
+        <TableView fx:id="table" GridPane.columnIndex="1" GridPane.rowIndex="4">
 
-
+        </TableView>
+    </children>
+    <columnConstraints>
+        <ColumnConstraints/>
+        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+    </rowConstraints>
 </GridPane>

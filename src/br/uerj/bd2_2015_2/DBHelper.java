@@ -13,7 +13,7 @@ import java.sql.SQLException;
 public class DBHelper {
 
     private static DBHelper instance;
-    private Connection connection = null;
+    public Connection connection = null;
 
     private DBHelper() {
 
