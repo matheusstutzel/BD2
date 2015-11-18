@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telas.Professor">
+  <columnConstraints>
+      <ColumnConstraints maxWidth="121.0" minWidth="10.0" prefWidth="116.0" />
+      <ColumnConstraints maxWidth="136.0" minWidth="10.0" prefWidth="59.0" />
+    <ColumnConstraints maxWidth="129.0" minWidth="10.0" prefWidth="125.0" />
+    <ColumnConstraints maxWidth="101.0" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <Label text="Adicionar Professor" GridPane.columnIndex="2" />
+      <Label text="Matrícula" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <TextField fx:id="MatriculaTexto" prefHeight="25.0" prefWidth="112.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+       <Label text="Nome" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+       <TextField fx:id="NomeTexto" prefHeight="25.0" prefWidth="112.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+       <Label text="Endereço" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+       <TextField fx:id="EnderecoTexto" prefHeight="25.0" prefWidth="112.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+       <Label text="Hora Aula" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+       <TextField fx:id="horaAulaTexto" prefHeight="25.0" prefWidth="112.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+      <Button fx:id="botaoSalvar" mnemonicParsing="false" text="Salvar" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+      <Button fx:id="botaoVoltar" mnemonicParsing="false" text="Voltar" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+   </children>
+</GridPane>

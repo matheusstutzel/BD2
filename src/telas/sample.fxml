@@ -1,7 +1,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <GridPane xmlns:fx="http://javafx.com/fxml"
-          fx:controller="sample.Controller" alignment="center" hgap="10" vgap="10">
+          fx:controller="telas.Controller" alignment="center" hgap="10" vgap="10">
     <Label GridPane.columnIndex="1" GridPane.rowIndex="1" text="Host"/>
     <TextField GridPane.columnIndex="2" GridPane.rowIndex="1" fx:id="host"/>
     <Label GridPane.columnIndex="1" GridPane.rowIndex="2"  text="BD"/>

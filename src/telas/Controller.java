@@ -1,4 +1,4 @@
-package sample;
+package telas;
 
 import br.uerj.bd2_2015_2.DBHelper;
 import javafx.event.ActionEvent;

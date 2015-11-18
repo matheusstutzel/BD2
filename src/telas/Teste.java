@@ -1,4 +1,4 @@
-package sample;
+package telas;
 
 import br.uerj.bd2_2015_2.DBHelper;
 import javafx.beans.property.SimpleStringProperty;
@@ -7,10 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.util.Callback;
 
 import java.sql.Connection;
@@ -26,7 +23,16 @@ public class Teste {
     public TextField textField;
     public TableView table;
     public TextField limit;
+    public MenuButton menuTabela;
+    public Label nomeTabela;
+    public Button botaoAdicionar;
 
+    /*Na combobox tem o nome de todas as tabelas principais. Ao mudar carregar
+        todas as linhas para a tabela e ao clicar em uma linha mostrar todos os relacionamentos
+            daquela tabela com as outras (Disponivel, Inscrito, Leciona, Marcado, Ministrar, Vinculado).
+      O botão de - tira a linha da tabela, confirmando antes (pop up tbm) e o botão de + redireciona a tela
+        de adicionar novo, uma pra cada tabela (adicionarTabela.fxml)
+     */
     public void sayHelloWorld(ActionEvent actionEvent) {
         txt.setText("Executando select");
         new Thread(new Task<String>() {
