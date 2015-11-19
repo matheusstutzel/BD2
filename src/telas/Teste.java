@@ -19,13 +19,12 @@ import java.sql.SQLException;
  * Created by Matheus on 15/10/2015.
  */
 public class Teste {
-    public Label txt;
-    public TextField textField;
     public TableView table;
-    public TextField limit;
     public MenuButton menuTabela;
     public Label nomeTabela;
     public Button botaoAdicionar;
+    public Button botaoExcluir;
+    public Button sair;
 
     /*Na combobox tem o nome de todas as tabelas principais. Ao mudar carregar
         todas as linhas para a tabela e ao clicar em uma linha mostrar todos os relacionamentos
@@ -33,30 +32,6 @@ public class Teste {
       O botão de - tira a linha da tabela, confirmando antes (pop up tbm) e o botão de + redireciona a tela
         de adicionar novo, uma pra cada tabela (adicionarTabela.fxml)
      */
-    public void sayHelloWorld(ActionEvent actionEvent) {
-        txt.setText("Executando select");
-        new Thread(new Task<String>() {
-            @Override
-            protected String call() throws Exception {
-                String t = textField.getText();
-                //StringBuilder b = getTableText(t);
-                buildData(t);
-                return "null";//b.toString();
-            }
-
-            @Override
-            protected void succeeded() {
-                super.succeeded();
-                txt.setText(getValue());
-            }
-
-            @Override
-            protected void failed() {
-                super.failed();
-                txt.setText(getException().getMessage());
-            }
-        }).start();
-    }
 
     private StringBuilder getTableText(String t) throws SQLException {
         StringBuilder b = new StringBuilder();
@@ -127,4 +102,31 @@ public class Teste {
         }
     }
 
+    public void selectTable(ActionEvent actionEvent) {
+        System.out.println("Teste");
+        final MenuItem m = ((MenuItem) actionEvent.getSource());
+        nomeTabela.setText(m.getText());
+        new Thread(new Task<String>() {
+            @Override
+            protected String call() throws Exception {
+                //StringBuilder b = getTableText(t);
+                buildData(m.getText());
+                return "null";//b.toString();
+            }
+
+            @Override
+            protected void succeeded() {
+                super.succeeded();
+            }
+
+            @Override
+            protected void failed() {
+                super.failed();
+            }
+        }).start();
+    }
+
+    public void sair(ActionEvent actionEvent) {
+        Main.s.close();
+    }
 }
