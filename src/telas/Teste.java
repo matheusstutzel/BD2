@@ -33,6 +33,7 @@ public class Teste {
     public Button botaoAdicionar;
     public Button botaoExcluir;
     public Button sair;
+    public Button botaoMaisOpcoes;
     private ObservableList<ObservableList> data;
     private ObservableList<Object> column;
 

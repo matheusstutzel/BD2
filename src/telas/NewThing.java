@@ -23,4 +23,19 @@ public abstract class NewThing {
     private void sair() {
     }
 
+    public boolean testaString(String s) {
+        return testaString(s, 1);
+    }
+
+    public boolean testaString(String s, int min) {
+        return false;
+    }
+
+    public boolean testaInt(String s, int min, int max) {
+        return false;
+    }
+
+    public boolean testaFloat(String s, int min, int max) {
+        return false;
+    }
 }
