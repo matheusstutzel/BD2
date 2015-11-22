@@ -1,6 +1,6 @@
 package telas;
 
-import javafx.scene.control.ComboBox;
+import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
 
 /**
@@ -10,7 +10,7 @@ public class Aluno extends NewThing {
     public TextField MatriculaTexto;
     public TextField NomeTexto;
     public TextField EnderecoTexto;
-    public ComboBox turnoCombo;
+    public MenuButton turnoCombo;
     public TextField descontoTexto;
     public TextField mensalidadeTexto;
 

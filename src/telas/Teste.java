@@ -7,9 +7,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -167,7 +174,68 @@ public class Teste {
     }
 
     public void insert(ActionEvent actionEvent) {
+        String tabelaNome = nomeTabela.getText();
+        createDialogInsert(tabelaNome, actionEvent);
+    }
 
+    public void createDialogInsert(String tableName, ActionEvent actionEvent) {
+        Stage stage = new Stage();
+        Parent root = null;
+        if (tableName.equals("Aluno")) {
+            try {
+                root = FXMLLoader.load(
+                        Aluno.class.getResource("adicionarAluno.fxml"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else if (tableName.equals("Filial")) {
+            try {
+                root = FXMLLoader.load(
+                        Filial.class.getResource("adicionarFilial.fxml"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else if (tableName.equals("Horario")) {
+            try {
+                root = FXMLLoader.load(
+                        Horario.class.getResource("adicionarHorario.fxml"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else if (tableName.equals("Materia")) {
+            try {
+                root = FXMLLoader.load(
+                        Materia.class.getResource("adicionarMateria.fxml"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else if (tableName.equals("Professor")) {
+            try {
+                root = FXMLLoader.load(
+                        Professor.class.getResource("adicionarProfessor.fxml"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else if (tableName.equals("Sala")) {
+            try {
+                root = FXMLLoader.load(
+                        Sala.class.getResource("adicionarSala.fxml"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else if (tableName.equals("Turma")) {
+            try {
+                root = FXMLLoader.load(
+                        Turma.class.getResource("adicionarTurma.fxml"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        stage.setScene(new Scene(root));
+        stage.setTitle(tableName);
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(((Node) actionEvent.getSource()).getScene().getWindow());
+        stage.show();
     }
 
     public void maisOpcoes(ActionEvent actionEvent) {
