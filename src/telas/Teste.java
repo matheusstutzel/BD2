@@ -151,7 +151,9 @@ public class Teste {
     public void delete(ActionEvent actionEvent) {
         ObservableList t = table.getItems();
         String delete;
-        for (Object o : table.getSelectionModel().getSelectedCells()) {
+        if (table.getSelectionModel().getSelectedCells().size() < 1)
+            new Alert(Alert.AlertType.WARNING, "Selecione uma linha da tabela abaixo").show();
+        else for (Object o : table.getSelectionModel().getSelectedCells()) {
             delete = DBHelper.criaDelete(nomeTabela.getText(), (ObservableList) t.get(((TablePosition) o).getRow()), column);
             System.out.println(delete);
             try {
