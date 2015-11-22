@@ -20,7 +20,7 @@ public static Stage s;
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         //todo trocar titulo
         primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        primaryStage.setScene(new Scene(root, 300, 200));
         primaryStage.show();
         s = primaryStage;
     }
