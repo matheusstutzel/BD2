@@ -28,18 +28,39 @@ public abstract class NewThing {
     }
 
     public boolean testaString(String s, int min) {
-        return false;
+        return s != null && s.trim().length() >= min;
     }
 
     public boolean testaInt(String s, int min, int max) {
-        return false;
+        if (s == null || s.trim().length() < 1) return false;
+        try {
+            int d = Integer.parseInt(s.trim());
+            if (d < min || d > max) return false;
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+        return true;
     }
 
     public boolean testaFloat(String s, int min, int max) {
-        return false;
+        if (s == null || s.trim().length() < 1) return false;
+        try {
+            float d = Float.parseFloat(s.trim());
+            if (d < min || d > max) return false;
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+        return true;
     }
 
     public boolean testaLong(String s, long min, long max) {
-        return false;
+        if (s == null || s.trim().length() < 1) return false;
+        try {
+            long d = Long.parseLong(s.trim());
+            if (d < min || d > max) return false;
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+        return true;
     }
 }

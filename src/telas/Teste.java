@@ -175,62 +175,17 @@ public class Teste {
     }
 
     public void insert(ActionEvent actionEvent) {
-        String tabelaNome = nomeTabela.getText();
-        createDialogInsert(tabelaNome, actionEvent);
+        createDialogInsert(nomeTabela.getText(), actionEvent);
     }
 
     public void createDialogInsert(String tableName, ActionEvent actionEvent) {
         Stage stage = new Stage();
         Parent root = null;
-        if (tableName.equals("Aluno")) {
-            try {
-                root = FXMLLoader.load(
-                        Aluno.class.getResource("adicionarAluno.fxml"));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } else if (tableName.equals("Filial")) {
-            try {
-                root = FXMLLoader.load(
-                        Filial.class.getResource("adicionarFilial.fxml"));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } else if (tableName.equals("Horario")) {
-            try {
-                root = FXMLLoader.load(
-                        Horario.class.getResource("adicionarHorario.fxml"));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } else if (tableName.equals("Materia")) {
-            try {
-                root = FXMLLoader.load(
-                        Materia.class.getResource("adicionarMateria.fxml"));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } else if (tableName.equals("Professor")) {
-            try {
-                root = FXMLLoader.load(
-                        Professor.class.getResource("adicionarProfessor.fxml"));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } else if (tableName.equals("Sala")) {
-            try {
-                root = FXMLLoader.load(
-                        Sala.class.getResource("adicionarSala.fxml"));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } else if (tableName.equals("Turma")) {
-            try {
-                root = FXMLLoader.load(
-                        Turma.class.getResource("adicionarTurma.fxml"));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        try {
+            root = FXMLLoader.load(
+                    Teste.class.getResource("adicionar" + tableName + ".fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         stage.setScene(new Scene(root));
         stage.setTitle(tableName);
