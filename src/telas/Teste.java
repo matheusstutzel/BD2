@@ -149,6 +149,18 @@ public class Teste {
     }
 
     public void delete(ActionEvent actionEvent) {
-        System.out.println(table.getSelectionModel().getSelectedCells().get(1));
+        ObservableList t = table.getItems();
+        String delete;
+        for (Object o : table.getSelectionModel().getSelectedCells()) {
+            delete = DBHelper.criaDelete(nomeTabela.getText(), (ObservableList) t.get(((TablePosition) o).getRow()), column);
+            System.out.println(delete);
+            try {
+                if (DBHelper.getInstance().delete(delete))
+                    t.remove(((TablePosition) o).getRow());
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, "Erro ao deletar item," + e.getMessage()).show();
+                e.printStackTrace();
+            }
+        }
     }
 }

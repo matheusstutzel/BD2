@@ -1,6 +1,8 @@
 package br.uerj.bd2_2015_2;
 
 import com.sun.istack.internal.NotNull;
+import javafx.collections.ObservableList;
+import javafx.scene.control.TableColumn;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -23,6 +25,17 @@ public class DBHelper {
         if (instance == null)
             instance = new DBHelper();
         return instance;
+    }
+
+    public static String criaDelete(String table, ObservableList o, ObservableList<Object> column) {
+        if (o.size() < column.size()) throw new IllegalArgumentException("Existem mais valores do que colunas");
+        StringBuilder sb = new StringBuilder();
+        sb.append("Delete from ").append(table).append(" Where ");
+        for (int i = 0; i < o.size(); i++) {
+            sb.append(((TableColumn) (column.get(i))).getText()).append("=\"").append(o.get(i)).append("\"");
+            if (i + 1 < o.size()) sb.append(" and ");
+        }
+        return sb.toString();
     }
 
     public java.sql.Connection getConnection(String serverName, String mydatabase, String username, String password) {
@@ -76,5 +89,9 @@ public class DBHelper {
     private String getSQLString(Object o) {
         if (o instanceof String) return "\'" + o + "\'";
         else return o.toString();
+    }
+
+    public boolean delete(String delete) throws SQLException {
+        return connection.createStatement().executeUpdate(delete) > 0;
     }
 }
