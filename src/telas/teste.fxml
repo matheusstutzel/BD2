@@ -24,6 +24,7 @@
                 <Label fx:id="nomeTabela" text="Nome Tabela"/>
                 <Button fx:id="botaoAdicionar" mnemonicParsing="false" onAction="#insert" text="+"/>
                 <Button fx:id="botaoExcluir" mnemonicParsing="false" onAction="#delete" text="-"/>
+                <Button mnemonicParsing="false" text="Mais opções"/>
             </children>
         </FlowPane>
         <TableView fx:id="table" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
@@ -31,17 +32,17 @@
                 GridPane.columnIndex="2"/>
     </children>
     <columnConstraints>
-        <ColumnConstraints maxWidth="196.0" minWidth="30.0" prefWidth="67.0" />
-        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="348.0" minWidth="163.0" prefWidth="292.0" />
-      <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="95.0" minWidth="0.0" prefWidth="56.0" />
+        <ColumnConstraints maxWidth="196.0" minWidth="30.0" prefWidth="67.0"/>
+        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="348.0" minWidth="163.0" prefWidth="292.0"/>
+        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="95.0" minWidth="0.0" prefWidth="56.0"/>
     </columnConstraints>
     <rowConstraints>
-        <RowConstraints maxHeight="25.0" minHeight="25.0" prefHeight="25.0" />
-        <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
-        <RowConstraints />
-        <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
-        <RowConstraints maxHeight="370.0" minHeight="370.0" prefHeight="370.0" />
-        <RowConstraints />
-        <RowConstraints />
+        <RowConstraints maxHeight="25.0" minHeight="25.0" prefHeight="25.0"/>
+        <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0"/>
+        <RowConstraints/>
+        <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0"/>
+        <RowConstraints maxHeight="370.0" minHeight="370.0" prefHeight="370.0"/>
+        <RowConstraints/>
+        <RowConstraints/>
     </rowConstraints>
 </GridPane>
