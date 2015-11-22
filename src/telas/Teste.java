@@ -163,4 +163,8 @@ public class Teste {
             }
         }
     }
+
+    public void insert(ActionEvent actionEvent) {
+
+    }
 }

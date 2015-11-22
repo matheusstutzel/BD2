@@ -2,34 +2,33 @@
 
 <!--fx:id="helloWorld"-->
 
-
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8"
-          fx:controller="telas.Teste">
+<GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="center" hgap="10" maxHeight="1.7976931348623157E308"
+          maxWidth="1.7976931348623157E308" vgap="10" xmlns="http://javafx.com/javafx/8" fx:controller="telas.Teste">
     <children>
-        <MenuButton mnemonicParsing="false" text="Tabela" wrapText="true" fx:id="menuTabela">
+        <MenuButton fx:id="menuTabela" mnemonicParsing="false" text="Tabela" wrapText="true">
             <items>
-                <MenuItem mnemonicParsing="false" text="Aluno" onAction="#selectTable"/>
-                <MenuItem mnemonicParsing="false" text="Professor" onAction="#selectTable"/>
-                <MenuItem mnemonicParsing="false" text="Filial" onAction="#selectTable"/>
-                <MenuItem mnemonicParsing="false" text="Turma" onAction="#selectTable"/>
-                <MenuItem mnemonicParsing="false" text="Horario" onAction="#selectTable"/>
-                <MenuItem mnemonicParsing="false" text="Sala" onAction="#selectTable"/>
-                <MenuItem mnemonicParsing="false" text="Materia" onAction="#selectTable"/>
+                <MenuItem mnemonicParsing="false" onAction="#selectTable" text="Aluno"/>
+                <MenuItem mnemonicParsing="false" onAction="#selectTable" text="Professor"/>
+                <MenuItem mnemonicParsing="false" onAction="#selectTable" text="Filial"/>
+                <MenuItem mnemonicParsing="false" onAction="#selectTable" text="Turma"/>
+                <MenuItem mnemonicParsing="false" onAction="#selectTable" text="Horario"/>
+                <MenuItem mnemonicParsing="false" onAction="#selectTable" text="Sala"/>
+                <MenuItem mnemonicParsing="false" onAction="#selectTable" text="Materia"/>
             </items>
         </MenuButton>
         <FlowPane xmlns:fx="http://javafx.com/fxml/1" alignment="center" hgap="10" vgap="10" GridPane.columnIndex="1"
                   xmlns="http://javafx.com/javafx/8">
-        <children>
-         <Label text="Nome Tabela" fx:id="nomeTabela"/>
-           <Button mnemonicParsing="false" text="+" fx:id="botaoAdicionar" />
-            <Button mnemonicParsing="false" text="-" fx:id="botaoExcluir" onAction="#delete"/>
-        </children>
+            <children>
+                <Label fx:id="nomeTabela" text="Nome Tabela"/>
+                <Button fx:id="botaoAdicionar" mnemonicParsing="false" onAction="#insert" text="+"/>
+                <Button fx:id="botaoExcluir" mnemonicParsing="false" onAction="#delete" text="-"/>
+            </children>
         </FlowPane>
         <TableView fx:id="table" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
-        <Button mnemonicParsing="false" text="Sair" textFill="#dd0000" GridPane.columnIndex="2" fx:id="sair"
-                onAction="#sair"/>
+        <Button fx:id="sair" mnemonicParsing="false" onAction="#sair" text="Sair" textFill="#dd0000"
+                GridPane.columnIndex="2"/>
     </children>
     <columnConstraints>
         <ColumnConstraints maxWidth="196.0" minWidth="30.0" prefWidth="67.0" />

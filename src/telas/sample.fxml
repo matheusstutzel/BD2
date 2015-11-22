@@ -1,28 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<GridPane xmlns:fx="http://javafx.com/fxml"
-          fx:controller="telas.Controller" alignment="center" hgap="10" vgap="10">
-    <Label GridPane.columnIndex="1" GridPane.rowIndex="1" text="Host"/>
-    <TextField GridPane.columnIndex="2" GridPane.rowIndex="1" fx:id="host"/>
-    <Label GridPane.columnIndex="1" GridPane.rowIndex="2"  text="BD"/>
-    <TextField GridPane.columnIndex="2" GridPane.rowIndex="2"  fx:id="BD"/>
-    <Label GridPane.columnIndex="1" GridPane.rowIndex="3"  text="User"/>
-    <TextField GridPane.columnIndex="2" GridPane.rowIndex="3"  fx:id="USER"/>
-    <Label GridPane.columnIndex="1" GridPane.rowIndex="4"  text="Password"/>
-    <PasswordField GridPane.columnIndex="2" GridPane.rowIndex="4"  fx:id="PASSWORD"/>
-    <Button
-            GridPane.columnIndex="1"
-            GridPane.rowIndex="5"
-           text=
-                    "teste" onAction=
-            "#sayHelloWorld"
-           defaultButton="true"/>
+<Pane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="telas.Controller">
+    <children>
+        <GridPane alignment="center" hgap="10" vgap="10">
+            <children>
+                <Label text="Host" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                <TextField fx:id="host" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+                <Label text="BD" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                <TextField fx:id="BD" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+                <Label text="User" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                <TextField fx:id="USER" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
+                <Label text="Password" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+                <PasswordField fx:id="PASSWORD" GridPane.columnIndex="2" GridPane.rowIndex="4"/>
+            </children>
+            <columnConstraints>
+                <ColumnConstraints/>
+                <ColumnConstraints maxWidth="81.0" minWidth="55.0" prefWidth="81.0"/>
+                <ColumnConstraints maxWidth="199.0" minWidth="55.0" prefWidth="168.0"/>
+                <ColumnConstraints maxWidth="144.0" minWidth="0.0" prefWidth="0.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints/>
+                <RowConstraints/>
+                <RowConstraints/>
+                <RowConstraints/>
+                <RowConstraints/>
+                <RowConstraints/>
+                <RowConstraints/>
+            </rowConstraints>
 
-    <Label
 
-            GridPane.columnIndex="0"
-            GridPane.rowIndex="5"
-            fx:id="helloWorld"/>
-
-
-</GridPane>
+        </GridPane>
+        <Button defaultButton="true" layoutX="119.0" layoutY="158.0" onAction="#sayHelloWorld" text="Conectar"/>
+    </children>
+</Pane>
