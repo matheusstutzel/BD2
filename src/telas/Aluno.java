@@ -16,6 +16,15 @@ public class Aluno extends NewThing {
 
     @Override
     boolean insere() {
+        if (!testaString(MatriculaTexto.getText())) return false;
+        if (!testaLong(MatriculaTexto.getText(), 1000000000, 9999999999l)) return false;
+        if (!testaString(NomeTexto.getText())) return false;
+        if (!testaString(EnderecoTexto.getText())) return false;
+        if (!testaString(turnoCombo.getText())) return false;
+        if (!testaFloat(descontoTexto.getText(), 0, 150)) return false;
+        if (!testaString(descontoTexto.getText())) return false;
+        if (!testaString(mensalidadeTexto.getText())) return false;
+        if (!testaFloat(mensalidadeTexto.getText(), 0, 1000)) return false;
         return false;
     }
 

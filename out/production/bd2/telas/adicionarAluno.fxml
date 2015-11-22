@@ -34,11 +34,12 @@
         <TextField prefHeight="25.0" prefWidth="112.0" GridPane.columnIndex="2" GridPane.rowIndex="3"
                    fx:id="EnderecoTexto"/>
         <Label text="Turno" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
-        <MenuButton prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="4" fx:id="turnoCombo" mnemonicParsing="false" wrapText="true">
+        <MenuButton prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="4" fx:id="turnoCombo"
+                    mnemonicParsing="false" wrapText="true">
             <items>
-                    <MenuItem mnemonicParsing="false" text="Manhã"/>
-                    <MenuItem mnemonicParsing="false" text="Tarde"/>
-                    <MenuItem mnemonicParsing="false" text="Noite"/>
+                <MenuItem mnemonicParsing="false" text="Manhã"/>
+                <MenuItem mnemonicParsing="false" text="Tarde"/>
+                <MenuItem mnemonicParsing="false" text="Noite"/>
             </items>
         </MenuButton>
         <Label text="Desconto" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="5"/>

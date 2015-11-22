@@ -38,4 +38,8 @@ public abstract class NewThing {
     public boolean testaFloat(String s, int min, int max) {
         return false;
     }
+
+    public boolean testaLong(String s, long min, long max) {
+        return false;
+    }
 }
