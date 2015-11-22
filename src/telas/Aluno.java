@@ -1,5 +1,6 @@
 package telas;
 
+import javafx.event.ActionEvent;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
 
@@ -17,6 +18,18 @@ public class Aluno extends NewThing {
     @Override
     boolean insere() {
         return false;
+    }
+
+    public void atualizaTurnoM(ActionEvent actionEvent) {
+        turnoCombo.setText("Manhã");
+    }
+
+    public void atualizaTurnoT(ActionEvent actionEvent) {
+        turnoCombo.setText("Tarde");
+    }
+
+    public void atualizaTurnoN(ActionEvent actionEvent) {
+        turnoCombo.setText("Noite");
     }
 
     /* Clicando no botão Salvar salva no BD e clicando no botão Voltar volta pra outra tela rs */
