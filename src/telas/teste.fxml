@@ -24,8 +24,8 @@
         <children>
          <Label text="Nome Tabela" fx:id="nomeTabela"/>
            <Button mnemonicParsing="false" text="+" fx:id="botaoAdicionar" />
-           <Button mnemonicParsing="false" text="-" fx:id="botaoExcluir" />
-       </children>
+            <Button mnemonicParsing="false" text="-" fx:id="botaoExcluir" onAction="#delete"/>
+        </children>
         </FlowPane>
         <TableView fx:id="table" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
         <Button mnemonicParsing="false" text="Sair" textFill="#dd0000" GridPane.columnIndex="2" fx:id="sair"
