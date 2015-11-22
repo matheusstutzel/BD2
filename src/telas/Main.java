@@ -18,7 +18,7 @@ public static Stage s;
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        //todo trocar titulo
+        //todo trocar titulo e trocar nome dos campos
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 300, 200));
         primaryStage.show();
