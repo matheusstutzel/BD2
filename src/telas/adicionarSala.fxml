@@ -19,11 +19,12 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Label text="Adicionar Turma" GridPane.columnIndex="2" />
+       <Label text="Adicionar Sala" GridPane.columnIndex="2"/>
       <Label text="Código" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="1" />
       <TextField fx:id="CodigoTexto" prefHeight="25.0" prefWidth="112.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
        <Label text="Filial" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-       <Button fx:id="botaoFilial" mnemonicParsing="false" text="Escolher Filial" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+       <MenuButton fx:id="botaoFilial" mnemonicParsing="false" text="Escolher Filial" GridPane.columnIndex="2"
+                   GridPane.rowIndex="2" wrapText="true"/>
        <Label text="Número Alunos" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="3" />
        <TextField fx:id="numAlunosTexto" prefHeight="25.0" prefWidth="112.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
        <Button fx:id="botaoSalvar" mnemonicParsing="false" text="Salvar" textAlignment="CENTER" GridPane.columnIndex="1"

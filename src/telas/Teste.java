@@ -107,6 +107,7 @@ public class Teste {
         System.out.println("Teste");
         final MenuItem m = ((MenuItem) actionEvent.getSource());
         nomeTabela.setText(m.getText());
+        menuTabela.setText(m.getText());
         clearTable();
         new Thread(new Task<String>() {
             @Override

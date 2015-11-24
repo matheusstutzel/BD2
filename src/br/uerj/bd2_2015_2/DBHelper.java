@@ -64,17 +64,22 @@ public class DBHelper {
             return false;
         }
     }
-
     public ResultSet select(@NotNull String table, boolean distinct, String selection, String[] selectionArgs, String groupBy, String having, String orderBy, String limit) throws SQLException {
+        return select(table, "*", distinct, selection, selectionArgs, groupBy, having, orderBy, limit);
+    }
+
+    public ResultSet select(@NotNull String table, @NotNull String column, boolean distinct, String selection, String[] selectionArgs, String groupBy, String having, String orderBy, String limit) throws SQLException {
         StringBuilder b = new StringBuilder();
-        b.append("SELECT * ");
+        b.append("SELECT ");
         if (distinct) b.append("DISTINCT ");
+        b.append(column).append(" ");
         b.append("FROM ").append(table).append(" ");
         if (selection != null) b.append("WHERE ").append(convertArgs(selection, selectionArgs)).append(" ");
         if (groupBy != null) b.append("GROUPBY ").append(groupBy).append(" ");
         if (having != null) b.append("HAVING ").append(having).append(" ");
         if (orderBy != null) b.append("ORDER BY ").append(orderBy).append(" ");
         if (limit != null) b.append("LIMIT ").append(limit);
+        System.out.println(b.toString());
         return connection.createStatement().executeQuery(b.toString());
     }
 

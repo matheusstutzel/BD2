@@ -1,12 +1,16 @@
 package telas;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+
+import java.net.URL;
+import java.util.ResourceBundle;
 
 /**
  * Created by Matheus on 22/11/2015.
  */
-public abstract class NewThing {
+public abstract class NewThing implements Initializable {
     public Button botaoSalvar;
     public Button botaoVoltar;
 
@@ -62,5 +66,10 @@ public abstract class NewThing {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
     }
 }
