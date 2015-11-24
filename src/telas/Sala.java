@@ -1,19 +1,11 @@
 package telas;
 
-import br.uerj.bd2_2015_2.DBHelper;
-import javafx.concurrent.Task;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
 import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
-import java.sql.ResultSet;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
-import java.util.concurrent.ExecutionException;
 
 /**
  * Created by Rafaela C. Brum on 17/11/2015.
@@ -46,41 +38,7 @@ public class Sala extends NewThing {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        System.out.println("ASDASDADS");
-        new Thread(new Task<ArrayList<String>>() {
-            @Override
-            protected ArrayList<String> call() throws Exception {
-                ArrayList<String> result = new ArrayList<String>();
-                ResultSet r = DBHelper.getInstance().select("Filial", "nome", true, null, null, null, null, "nome asc", null);
-                while (r.next()) {
-                    result.add(r.getString("nome"));
-                }
-                return result;
-            }
-
-            @Override
-            protected void succeeded() {
-                super.succeeded();
-                try {
-                    MenuItem m;
-                    for (String s : get()) {
-                        m = new MenuItem(s);
-                        m.setOnAction(new EventHandler<ActionEvent>() {
-                            @Override
-                            public void handle(ActionEvent event) {
-                                botaoFilial.setText(((MenuItem) event.getSource()).getText());
-                            }
-                        });
-                        botaoFilial.getItems().add(m);
-                        System.out.println("Add " + s);
-                    }
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (ExecutionException e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
+        setMenuButton(botaoFilial, "Filial", "nome");
     }
      /* Clicando no botão da Filial, abre uma pop-up com as informações das Filiais cadastradas e o usuário pode escolher
         uma. */

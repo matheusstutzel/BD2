@@ -1,11 +1,19 @@
 package telas;
 
+import br.uerj.bd2_2015_2.DBHelper;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 
 import java.net.URL;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.concurrent.ExecutionException;
 
 /**
  * Created by Matheus on 22/11/2015.
@@ -71,5 +79,42 @@ public abstract class NewThing implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+    }
+
+    protected void setMenuButton(final MenuButton mb, final String table, final String column) {
+        new Thread(new Task<ArrayList<String>>() {
+            @Override
+            protected ArrayList<String> call() throws Exception {
+                ArrayList<String> result = new ArrayList<String>();
+                ResultSet r = DBHelper.getInstance().select(table, column, true, null, null, null, null, column + " asc", null);
+                while (r.next()) {
+                    result.add(r.getString(column));
+                }
+                return result;
+            }
+
+            @Override
+            protected void succeeded() {
+                super.succeeded();
+                try {
+                    MenuItem m;
+                    for (String s : get()) {
+                        m = new MenuItem(s);
+                        m.setOnAction(new EventHandler<ActionEvent>() {
+                            @Override
+                            public void handle(ActionEvent event) {
+                                mb.setText(((MenuItem) event.getSource()).getText());
+                            }
+                        });
+                        mb.getItems().add(m);
+                        System.out.println("Add " + s);
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
     }
 }
