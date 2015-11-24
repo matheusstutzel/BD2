@@ -1,6 +1,7 @@
 package telas;
 
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
 
@@ -17,15 +18,34 @@ public class Aluno extends NewThing {
 
     @Override
     boolean insere() {
-        if (!testaString(MatriculaTexto.getText())) return false;
-        if (!testaLong(MatriculaTexto.getText(), 1000000000, 9999999999l)) return false;
-        if (!testaString(NomeTexto.getText())) return false;
-        if (!testaString(EnderecoTexto.getText())) return false;
-        if (!testaString(turnoCombo.getText())) return false;
-        if (!testaFloat(descontoTexto.getText(), 0, 150)) return false;
-        if (!testaString(descontoTexto.getText())) return false;
-        if (!testaString(mensalidadeTexto.getText())) return false;
-        if (!testaFloat(mensalidadeTexto.getText(), 0, 1000)) return false;
+        if (!testaString(MatriculaTexto.getText())) {
+            new Alert(Alert.AlertType.INFORMATION, "Digite a matrícula").show();
+            return false;
+        } else if (!testaLong(MatriculaTexto.getText(), 1000000000, 9999999999L)) {
+            new Alert(Alert.AlertType.INFORMATION, "A matricula deve ter exatamente 10 digitos").show();
+            return false;
+        } else if (!testaString(NomeTexto.getText())) {
+            new Alert(Alert.AlertType.INFORMATION, "Digite o nome do aluno").show();
+            return false;
+        } else if (!testaString(EnderecoTexto.getText())) {
+            new Alert(Alert.AlertType.INFORMATION, "Digite o endereço").show();
+            return false;
+        } else if (!testaString(turnoCombo.getText())) {
+            new Alert(Alert.AlertType.INFORMATION, "Selecione um turno").show();
+            return false;
+        } else if (!testaFloat(descontoTexto.getText(), 0, 150)) {
+            new Alert(Alert.AlertType.INFORMATION, "Desconto inválido").show();
+            return false;
+        } else if (!testaString(descontoTexto.getText())) {
+            new Alert(Alert.AlertType.INFORMATION, "Digite o desconto").show();
+            return false;
+        } else if (!testaString(mensalidadeTexto.getText())) {
+            new Alert(Alert.AlertType.INFORMATION, "Digite a mensalidade").show();
+            return false;
+        } else if (!testaFloat(mensalidadeTexto.getText(), 0, 1000)) {
+            new Alert(Alert.AlertType.INFORMATION, "Mensalidade inválida").show();
+            return false;
+        }
         return false;
     }
 

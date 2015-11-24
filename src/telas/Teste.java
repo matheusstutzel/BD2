@@ -187,7 +187,9 @@ public class Teste {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        stage.setScene(new Scene(root));
+        if (root != null) {
+            stage.setScene(new Scene(root));
+        }
         stage.setTitle(tableName);
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(((Node) actionEvent.getSource()).getScene().getWindow());
