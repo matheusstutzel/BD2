@@ -37,9 +37,9 @@
         <MenuButton prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="4" fx:id="turnoCombo"
                     mnemonicParsing="false" wrapText="true">
             <items>
-                <MenuItem mnemonicParsing="false" text="Manhã" onAction="#atualizaTurnoM"/>
-                <MenuItem mnemonicParsing="false" text="Tarde" onAction="#atualizaTurnoT"/>
-                <MenuItem mnemonicParsing="false" text="Noite" onAction="#atualizaTurnoN"/>
+                <MenuItem mnemonicParsing="false" text="Manhã" onAction="#atualizaTurno"/>
+                <MenuItem mnemonicParsing="false" text="Tarde" onAction="#atualizaTurno"/>
+                <MenuItem mnemonicParsing="false" text="Noite" onAction="#atualizaTurno"/>
             </items>
         </MenuButton>
         <Label text="Desconto" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="5"/>

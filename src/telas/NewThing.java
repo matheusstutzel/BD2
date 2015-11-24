@@ -5,13 +5,16 @@ import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 import java.util.concurrent.ExecutionException;
 
@@ -26,13 +29,30 @@ public abstract class NewThing implements Initializable {
         if (insere()) sair();
     }
 
-    abstract boolean insere();
+    public boolean insere() {
+        try {
+            testaInformacoes();
+            return insert(getTableName(), getParametros());
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "Erro! " + e.getMessage()).show();
+        }
+        return false;
+    }
+
+    protected String getTableName() {
+        return this.getClass().getSimpleName();
+    }
+
+    abstract void testaInformacoes();
+
+    abstract HashMap<String, String> getParametros();
 
     public void volta(ActionEvent actionEvent) {
         sair();
     }
 
     private void sair() {
+        ((Stage) botaoSalvar.getScene().getWindow()).close();
     }
 
     public boolean testaString(String s) {
@@ -81,14 +101,20 @@ public abstract class NewThing implements Initializable {
 
     }
 
-    protected void setMenuButton(final MenuButton mb, final String table, final String column) {
-        new Thread(new Task<ArrayList<String>>() {
+    protected void setMenuButton(final MenuButton mb, final String table, final String column, final ItemClickListener handler) {
+        new Thread(new Task<ArrayList<HashMap<String, Object>>>() {
             @Override
-            protected ArrayList<String> call() throws Exception {
-                ArrayList<String> result = new ArrayList<String>();
+            protected ArrayList<HashMap<String, Object>> call() throws Exception {
+                ArrayList<HashMap<String, Object>> result = new ArrayList<HashMap<String, Object>>();
                 ResultSet r = DBHelper.getInstance().select(table, column, true, null, null, null, null, column + " asc", null);
+                String[] c = column.split(",");
+                HashMap<String, Object> t;
                 while (r.next()) {
-                    result.add(r.getString(column));
+                    t = new HashMap<String, Object>();
+                    for (String s : c) {
+                        t.put(s, r.getObject(s));
+                    }
+                    result.add(t);
                 }
                 return result;
             }
@@ -98,16 +124,17 @@ public abstract class NewThing implements Initializable {
                 super.succeeded();
                 try {
                     MenuItem m;
-                    for (String s : get()) {
-                        m = new MenuItem(s);
+                    for (final HashMap<String, Object> s : get()) {
+                        m = new MenuItem(s.get(column.split(",")[0]).toString());
                         m.setOnAction(new EventHandler<ActionEvent>() {
                             @Override
                             public void handle(ActionEvent event) {
                                 mb.setText(((MenuItem) event.getSource()).getText());
+                                handler.onAction(s);
                             }
                         });
                         mb.getItems().add(m);
-                        System.out.println("Add " + s);
+                        System.out.println("Add " + m.getText());
                     }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -116,5 +143,19 @@ public abstract class NewThing implements Initializable {
                 }
             }
         }).start();
+    }
+
+
+    protected boolean insert(String turma, HashMap<String, String> stringStringHashMap) {
+        try {
+            return DBHelper.getInstance().insert(turma, stringStringHashMap);
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "Erro ao adicionar " + e.getMessage());
+            return false;
+        }
+    }
+
+    public interface ItemClickListener {
+        void onAction(HashMap<String, Object> s);
     }
 }

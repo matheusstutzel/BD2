@@ -1,7 +1,8 @@
 package telas;
 
-import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+
+import java.util.HashMap;
 
 /**
  * Created by Rafaela C. Brum on 17/11/2015.
@@ -11,32 +12,38 @@ public class Materia extends NewThing {
     public TextField NomeTexto;
     public TextField horasPorSemanaTexto;
     public TextField MensalidadeTexto;
+    String codigo, nome, horas, mensalidade;
+    @Override
+    void testaInformacoes() {
+        codigo = CodigoTexto.getText();
+        nome = NomeTexto.getText();
+        horas = horasPorSemanaTexto.getText();
+        mensalidade = MensalidadeTexto.getText();
+        if (!testaString(codigo)) {
+            throw new IllegalArgumentException("Digite a código da matéria");
+        } else if (!testaLong(codigo, 1000000000, 9999999999L)) {
+            throw new IllegalArgumentException("O código da matéria deve ter exatamente 10 digitos");
+        } else if (!testaString(nome)) {
+            throw new IllegalArgumentException("Digite o nome da matéria");
+        } else if (!testaInt(horas, 1, 6)) {
+            throw new IllegalArgumentException("Horário inválido");
+        } else if (!testaString(horas)) {
+            throw new IllegalArgumentException("Digite o horário");
+        } else if (!testaString(mensalidade)) {
+            throw new IllegalArgumentException("Digite a mensalidade");
+        } else if (!testaFloat(mensalidade, 0, 1000)) {
+            throw new IllegalArgumentException("Mensalidade inválida");
+        }
+    }
 
     @Override
-    boolean insere() {
-        if (!testaString(CodigoTexto.getText())) {
-            new Alert(Alert.AlertType.INFORMATION, "Digite a código da matéria").show();
-            return false;
-        } else if (!testaLong(CodigoTexto.getText(), 1000000000, 9999999999L)) {
-            new Alert(Alert.AlertType.INFORMATION, "O código da matéria deve ter exatamente 10 digitos").show();
-            return false;
-        } else if (!testaString(NomeTexto.getText())) {
-            new Alert(Alert.AlertType.INFORMATION, "Digite o nome da matéria").show();
-            return false;
-        } else if (!testaInt(horasPorSemanaTexto.getText(), 1, 6)) {
-            new Alert(Alert.AlertType.INFORMATION, "Horário inválido").show();
-            return false;
-        } else if (!testaString(horasPorSemanaTexto.getText())) {
-            new Alert(Alert.AlertType.INFORMATION, "Digite o horário").show();
-            return false;
-        } else if (!testaString(MensalidadeTexto.getText())) {
-            new Alert(Alert.AlertType.INFORMATION, "Digite a mensalidade").show();
-            return false;
-        } else if (!testaFloat(MensalidadeTexto.getText(), 0, 1000)) {
-            new Alert(Alert.AlertType.INFORMATION, "Mensalidade inválida").show();
-            return false;
-        }
-        return false;
+    HashMap<String, String> getParametros() {
+        HashMap<String, String> hm = new HashMap<String, String>();
+        hm.put("cod_materia", codigo);
+        hm.put("horasPorSemana", horas);
+        hm.put("mensalidade", mensalidade);
+        hm.put("nome", nome);
+        return hm;
     }
     /* Clicando no botão Salvar salva no BD e clicando no botão Voltar volta pra outra tela rs */
 }

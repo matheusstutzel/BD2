@@ -1,10 +1,10 @@
 package telas;
 
-import javafx.scene.control.Alert;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 
 /**
@@ -16,33 +16,39 @@ public class Turma extends NewThing {
     public MenuButton botaoMateria;
     public TextField numAlunosTexto;
     public TextField AnoTexto;
+    String codigo, sala, materia, alunos, ano;
+    private String cod_filial;
 
     @Override
-    boolean insere() {
-        String codigo, sala, materia, alunos, ano;
+    void testaInformacoes() {
         codigo = CodigoTexto.getText();
         sala = botaoSala.getText();
-        materia = botaoMateria.getText();
         alunos = numAlunosTexto.getText();
         ano = AnoTexto.getText();
 
         if (!testaLong(codigo, 0L, Long.MAX_VALUE)) {
-            new Alert(Alert.AlertType.INFORMATION, "O código deve ser um número positivo").show();
-            return false;
+            throw new IllegalArgumentException("O código deve ser um número positivo");
         } else if (sala.trim().toLowerCase().equals("Escolher Sala".trim().toLowerCase()) || !testaString(sala)) {
-            new Alert(Alert.AlertType.INFORMATION, "Escolha uma Sala").show();
-            return false;
-        } else if (materia.trim().toLowerCase().equals("Escolher Matéria".trim().toLowerCase()) || !testaString(materia)) {
-            new Alert(Alert.AlertType.INFORMATION, "Escolha uma Matéria").show();
-            return false;
+            throw new IllegalArgumentException("Escolha uma Sala");
+        } else if (materia == null || materia.trim().toLowerCase().equals("Escolher Matéria".trim().toLowerCase()) || !testaString(materia)) {
+            throw new IllegalArgumentException("Escolha uma Matéria");
         } else if (!testaInt(alunos, 10, 50)) {
-            new Alert(Alert.AlertType.INFORMATION, "O número de alunos deve ser preenchido com um inteiro entre 10 e 50").show();
-            return false;
+            throw new IllegalArgumentException("O número de alunos deve ser preenchido com um inteiro entre 10 e 50");
         } else if (!testaInt(ano, 0, Integer.MAX_VALUE)) {
-            new Alert(Alert.AlertType.INFORMATION, "O ano deve ser um número positivo").show();
-            return false;
+            throw new IllegalArgumentException("O ano deve ser um número positivo");
         }
-        return false;
+    }
+
+    @Override
+    HashMap<String, String> getParametros() {
+        HashMap<String, String> hm = new HashMap<String, String>();
+        hm.put("cod_turma", codigo);
+        hm.put("num_sala", sala);
+        hm.put("cod_filial", cod_filial);
+        hm.put("cod_materia", materia);
+        hm.put("numMaxAlunos", alunos);
+        hm.put("ano", ano);
+        return hm;
     }
     /* Clicando no botão da Sala, abre uma pop-up com as informações das Salas cadastradas e o usuário pode escolher
         uma. Clicando no botão de Matéria, a mesma coisa só que com Matéria. */
@@ -51,7 +57,17 @@ public class Turma extends NewThing {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        setMenuButton(botaoSala, "Sala", "num_sala");
-        setMenuButton(botaoMateria, "Materia", "nome");
+        setMenuButton(botaoSala, "Sala", "num_sala,cod_filial", new ItemClickListener() {
+            @Override
+            public void onAction(HashMap<String, Object> s) {
+                cod_filial = s.get("cod_filial").toString();
+            }
+        });
+        setMenuButton(botaoMateria, "Materia", "nome,cod_materia", new ItemClickListener() {
+            @Override
+            public void onAction(HashMap<String, Object> s) {
+                materia = s.get("cod_materia").toString();
+            }
+        });
     }
 }

@@ -8,6 +8,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Set;
 
 /**
  * Created by Matheus on 20/10/2015.
@@ -98,5 +100,25 @@ public class DBHelper {
 
     public boolean delete(String delete) throws SQLException {
         return connection.createStatement().executeUpdate(delete) > 0;
+    }
+
+    public boolean insert(String table, HashMap<String, String> value) throws Exception {
+        StringBuilder sql = new StringBuilder(), values = new StringBuilder();
+        sql.append("Insert into ").append(table).append(" (");
+        values.append("(");
+        int i = 0;
+        Set<String> keys = value.keySet();
+        for (String s : keys) {
+            sql.append(s);
+            values.append("\"").append(value.get(s)).append("\"");
+            if (++i < keys.size()) {
+                sql.append(",");
+                values.append(",");
+            }
+        }
+        sql.append(") Values ").append(values).append(")");
+        System.out.println(sql.toString());
+        return connection.createStatement().executeUpdate(sql.toString()) > 0;
+        //return true;
     }
 }
