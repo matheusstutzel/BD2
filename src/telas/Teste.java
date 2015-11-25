@@ -12,6 +12,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Callback;
@@ -211,25 +212,21 @@ public class Teste {
                 aux = ((ObservableList) t.get(((TablePosition) o).getRow())).get(0).toString();
             }
             Stage stage = new Stage();
-            Parent root = null;
+            FXMLLoader root = null;
             try {
-                root = FXMLLoader.load(
+                root = new FXMLLoader(
                         Teste.class.getResource("alunoGrade.fxml"));
-            } catch (IOException e) {
+                stage.setScene(new Scene((Pane) root.load()));
+                stage.setTitle("Grade de horário");
+                stage.initModality(Modality.WINDOW_MODAL);
+                stage.initOwner(botaoMaisOpcoes.getScene().getWindow());
+                AlunoGrade controller =
+                        root.<AlunoGrade>getController();
+                controller.initData(aux);
+                stage.show();
+            } catch (Exception e) {
                 e.printStackTrace();
             }
-            if (root != null) {
-                stage.setScene(new Scene(root));
-            }
-            stage.setTitle("Grade de horário");
-            stage.initModality(Modality.WINDOW_MODAL);
-            stage.initOwner(((Node) actionEvent.getSource()).getScene().getWindow());
-            FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("alunoGrade.fxml"));
-            AlunoGrade controller =
-                    loader.<AlunoGrade>getController();
-            controller.initData(aux);
-            stage.show();
         } else new Alert(Alert.AlertType.WARNING, "Selecione uma linha da tabela abaixo").show();
     }
 
