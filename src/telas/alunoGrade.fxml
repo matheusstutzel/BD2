@@ -2,37 +2,37 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" gridLinesVisible="true" maxHeight="-Infinity"
-          maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="504.0" prefWidth="702.0"
-          xmlns="http://javafx.com/javafx/8" fx:controller="telas.AlunoGrade" fx:id="gridPane">
+<GridPane xmlns:fx="http://javafx.com/fxml/1" fx:id="gridPane" alignment="CENTER" gridLinesVisible="true"
+          maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0"
+          prefWidth="800.0" xmlns="http://javafx.com/javafx/8" fx:controller="telas.AlunoGrade">
     <columnConstraints>
-        <ColumnConstraints maxWidth="95.0" minWidth="10.0" prefWidth="93.0"/>
-        <ColumnConstraints maxWidth="136.0" minWidth="10.0" prefWidth="107.0"/>
-        <ColumnConstraints minWidth="10.0" prefWidth="100.0"/>
-        <ColumnConstraints minWidth="10.0" prefWidth="100.0"/>
-        <ColumnConstraints minWidth="10.0" prefWidth="100.0"/>
-        <ColumnConstraints minWidth="10.0" prefWidth="100.0"/>
-        <ColumnConstraints minWidth="10.0" prefWidth="100.0"/>
+        <ColumnConstraints minWidth="50.0" prefWidth="150.0"/>
+        <ColumnConstraints minWidth="50.0" prefWidth="150.0"/>
+        <ColumnConstraints minWidth="50.0" prefWidth="150.0"/>
+        <ColumnConstraints minWidth="50.0" prefWidth="150.0"/>
+        <ColumnConstraints minWidth="50.0" prefWidth="150.0"/>
+        <ColumnConstraints minWidth="50.0" prefWidth="150.0"/>
+        <ColumnConstraints minWidth="50.0" prefWidth="150.0"/>
     </columnConstraints>
     <rowConstraints>
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES"/>
     </rowConstraints>
     <children>
-        <Label text="08:00" textAlignment="RIGHT" GridPane.rowIndex="1"/>
+        <Label text="08:00" GridPane.rowIndex="1"/>
         <Label text="09:00" textAlignment="RIGHT" GridPane.rowIndex="2"/>
         <Label text="10:00" textAlignment="RIGHT" GridPane.rowIndex="3"/>
         <Label text="11:00" textAlignment="RIGHT" GridPane.rowIndex="4"/>
@@ -52,90 +52,18 @@
         <Label text="Quinta" GridPane.columnIndex="4"/>
         <Label text="Sexta" GridPane.columnIndex="5"/>
         <Label text="Sábado" GridPane.columnIndex="6"/>
-        <Label text="-----------------" GridPane.columnIndex="1" GridPane.rowIndex="1" fx:id="seg8"/>
-        <Label text="-----------------" GridPane.columnIndex="1" GridPane.rowIndex="2" fx:id="seg8"/>
-        <Label text="-----------------" GridPane.columnIndex="1" GridPane.rowIndex="3" fx:id="seg8"/>
-        <Label text="-----------------" GridPane.columnIndex="1" GridPane.rowIndex="4" fx:id="seg8"/>
-        <Label text="-----------------" GridPane.columnIndex="1" GridPane.rowIndex="5" fx:id="seg8"/>
-        <Label text="-----------------" GridPane.columnIndex="1" GridPane.rowIndex="6" fx:id="seg8"/>
-        <Label text="-----------------" GridPane.columnIndex="1" GridPane.rowIndex="7" fx:id="seg8"/>
-        <Label text="-----------------" GridPane.columnIndex="1" GridPane.rowIndex="8" fx:id="seg8"/>
-        <Label text="-----------------" GridPane.columnIndex="1" GridPane.rowIndex="9" fx:id="seg8"/>
-        <Label text="-----------------" GridPane.columnIndex="1" GridPane.rowIndex="10" fx:id="seg8"/>
-        <Label text="-----------------" GridPane.columnIndex="1" GridPane.rowIndex="11" fx:id="seg8"/>
-        <Label text="-----------------" GridPane.columnIndex="1" GridPane.rowIndex="12" fx:id="seg8"/>
-        <Label text="-----------------" GridPane.columnIndex="1" GridPane.rowIndex="13" fx:id="seg8"/>
-        <Label text="-----------------" GridPane.columnIndex="1" GridPane.rowIndex="14" fx:id="seg8"/>
-        <Label text="-----------------" GridPane.columnIndex="2" GridPane.rowIndex="1" fx:id="seg8"/>
-        <Label text="-----------------" GridPane.columnIndex="2" GridPane.rowIndex="2" fx:id="seg8"/>
-        <Label text="-----------------" GridPane.columnIndex="2" GridPane.rowIndex="3" fx:id="seg8"/>
-        <Label text="-----------------" GridPane.columnIndex="2" GridPane.rowIndex="4" fx:id="seg8"/>
-        <Label text="-----------------" GridPane.columnIndex="2" GridPane.rowIndex="5" fx:id="seg8"/>
-        <Label text="-----------------" GridPane.columnIndex="2" GridPane.rowIndex="6" fx:id="seg8"/>
-        <Label text="-----------------" GridPane.columnIndex="2" GridPane.rowIndex="7" fx:id="seg8"/>
-        <Label text="-----------------" GridPane.columnIndex="2" GridPane.rowIndex="8" fx:id="seg8"/>
-        <Label text="-----------------" GridPane.columnIndex="2" GridPane.rowIndex="9" fx:id="seg8"/>
-        <Label text="-----------------" GridPane.columnIndex="2" GridPane.rowIndex="10"/>
-        <Label text="-----------------" GridPane.columnIndex="2" GridPane.rowIndex="11"/>
-        <Label text="-----------------" GridPane.columnIndex="2" GridPane.rowIndex="12"/>
-        <Label text="-----------------" GridPane.columnIndex="2" GridPane.rowIndex="13"/>
-        <Label text="-----------------" GridPane.columnIndex="2" GridPane.rowIndex="14"/>
-        <Label text="-----------------" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
-        <Label text="-----------------" GridPane.columnIndex="3" GridPane.rowIndex="2"/>
-        <Label text="-----------------" GridPane.columnIndex="3" GridPane.rowIndex="3"/>
-        <Label text="-----------------" GridPane.columnIndex="3" GridPane.rowIndex="4"/>
-        <Label text="-----------------" GridPane.columnIndex="3" GridPane.rowIndex="5"/>
-        <Label text="-----------------" GridPane.columnIndex="3" GridPane.rowIndex="6"/>
-        <Label text="-----------------" GridPane.columnIndex="3" GridPane.rowIndex="7"/>
-        <Label text="-----------------" GridPane.columnIndex="3" GridPane.rowIndex="8"/>
-        <Label text="-----------------" GridPane.columnIndex="3" GridPane.rowIndex="9"/>
-        <Label text="-----------------" GridPane.columnIndex="3" GridPane.rowIndex="10"/>
-        <Label text="-----------------" GridPane.columnIndex="3" GridPane.rowIndex="11"/>
-        <Label text="-----------------" GridPane.columnIndex="3" GridPane.rowIndex="12"/>
-        <Label text="-----------------" GridPane.columnIndex="3" GridPane.rowIndex="13"/>
-        <Label text="-----------------" GridPane.columnIndex="3" GridPane.rowIndex="14"/>
-        <Label text="-----------------" GridPane.columnIndex="4" GridPane.rowIndex="1"/>
-        <Label text="-----------------" GridPane.columnIndex="4" GridPane.rowIndex="2"/>
-        <Label text="-----------------" GridPane.columnIndex="4" GridPane.rowIndex="3"/>
-        <Label text="-----------------" GridPane.columnIndex="4" GridPane.rowIndex="4"/>
-        <Label text="-----------------" GridPane.columnIndex="4" GridPane.rowIndex="5"/>
-        <Label text="-----------------" GridPane.columnIndex="4" GridPane.rowIndex="6"/>
-        <Label text="-----------------" GridPane.columnIndex="4" GridPane.rowIndex="7"/>
-        <Label text="-----------------" GridPane.columnIndex="4" GridPane.rowIndex="8"/>
-        <Label text="-----------------" GridPane.columnIndex="4" GridPane.rowIndex="9"/>
-        <Label text="-----------------" GridPane.columnIndex="4" GridPane.rowIndex="10"/>
-        <Label text="-----------------" GridPane.columnIndex="4" GridPane.rowIndex="11"/>
-        <Label text="-----------------" GridPane.columnIndex="4" GridPane.rowIndex="12"/>
-        <Label text="-----------------" GridPane.columnIndex="4" GridPane.rowIndex="13"/>
-        <Label text="-----------------" GridPane.columnIndex="4" GridPane.rowIndex="14"/>
-        <Label text="-----------------" GridPane.columnIndex="5" GridPane.rowIndex="1"/>
-        <Label text="-----------------" GridPane.columnIndex="5" GridPane.rowIndex="2"/>
-        <Label text="-----------------" GridPane.columnIndex="5" GridPane.rowIndex="3"/>
-        <Label text="-----------------" GridPane.columnIndex="5" GridPane.rowIndex="4"/>
-        <Label text="-----------------" GridPane.columnIndex="5" GridPane.rowIndex="5"/>
-        <Label text="-----------------" GridPane.columnIndex="5" GridPane.rowIndex="6"/>
-        <Label text="-----------------" GridPane.columnIndex="5" GridPane.rowIndex="7"/>
-        <Label text="-----------------" GridPane.columnIndex="5" GridPane.rowIndex="8"/>
-        <Label text="-----------------" GridPane.columnIndex="5" GridPane.rowIndex="9"/>
-        <Label text="-----------------" GridPane.columnIndex="5" GridPane.rowIndex="10"/>
-        <Label text="-----------------" GridPane.columnIndex="5" GridPane.rowIndex="11"/>
-        <Label text="-----------------" GridPane.columnIndex="5" GridPane.rowIndex="12"/>
-        <Label text="-----------------" GridPane.columnIndex="5" GridPane.rowIndex="13"/>
-        <Label text="-----------------" GridPane.columnIndex="5" GridPane.rowIndex="14"/>
-        <Label text="-----------------" GridPane.columnIndex="6" GridPane.rowIndex="1"/>
-        <Label text="-----------------" GridPane.columnIndex="6" GridPane.rowIndex="2"/>
-        <Label text="-----------------" GridPane.columnIndex="6" GridPane.rowIndex="3"/>
-        <Label text="-----------------" GridPane.columnIndex="6" GridPane.rowIndex="4"/>
-        <Label text="-----------------" GridPane.columnIndex="6" GridPane.rowIndex="5"/>
-        <Label text="-----------------" GridPane.columnIndex="6" GridPane.rowIndex="6"/>
-        <Label text="-----------------" GridPane.columnIndex="6" GridPane.rowIndex="7"/>
-        <Label text="-----------------" GridPane.columnIndex="6" GridPane.rowIndex="8"/>
-        <Label text="-----------------" GridPane.columnIndex="6" GridPane.rowIndex="9"/>
-        <Label text="-----------------" GridPane.columnIndex="6" GridPane.rowIndex="10"/>
-        <Label text="-----------------" GridPane.columnIndex="6" GridPane.rowIndex="11"/>
-        <Label text="-----------------" GridPane.columnIndex="6" GridPane.rowIndex="12"/>
-        <Label text="-----------------" GridPane.columnIndex="6" GridPane.rowIndex="13"/>
-        <Label text="-----------------" GridPane.columnIndex="6" GridPane.rowIndex="14"/>
+        <Label fx:id="seg12" text="Intervalo" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+        <Label fx:id="seg17" text="Intervalo" GridPane.columnIndex="1" GridPane.rowIndex="10"/>
+        <Label fx:id="ter12" text="Intervalo" GridPane.columnIndex="2" GridPane.rowIndex="5"/>
+        <Label fx:id="ter17" text="Intervalo" GridPane.columnIndex="2" GridPane.rowIndex="10"/>
+        <Label fx:id="qua12" text="Intervalo" GridPane.columnIndex="3" GridPane.rowIndex="5"/>
+        <Label fx:id="qua17" text="Intervalo" GridPane.columnIndex="3" GridPane.rowIndex="10"/>
+        <Label fx:id="qui12" text="Intervalo" GridPane.columnIndex="4" GridPane.rowIndex="5"/>
+        <Label fx:id="qui17" text="Intervalo" GridPane.columnIndex="4" GridPane.rowIndex="10"/>
+        <Label fx:id="sex12" text="Intervalo" GridPane.columnIndex="5" GridPane.rowIndex="5"/>
+        <Label fx:id="sex17" text="Intervalo" GridPane.columnIndex="5" GridPane.rowIndex="10"/>
+        <Label fx:id="sab12" text="Intervalo" GridPane.columnIndex="6" GridPane.rowIndex="5"/>
+        <Label fx:id="sab17" text="Intervalo" GridPane.columnIndex="6" GridPane.rowIndex="10"/>
         <Label text="Horário/Dia"/>
     </children>
 </GridPane>
