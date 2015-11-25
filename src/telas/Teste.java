@@ -33,7 +33,7 @@ public class Teste {
     public Button botaoAdicionar;
     public Button botaoExcluir;
     public Button sair;
-    public Button botaoMaisOpcoes;
+    public MenuButton botaoMaisOpcoes;
     private ObservableList<ObservableList> data;
     private ObservableList<Object> column;
 
@@ -197,7 +197,43 @@ public class Teste {
         stage.show();
     }
 
-    public void maisOpcoes(ActionEvent actionEvent) {
-        new Alert(Alert.AlertType.INFORMATION, "Essa lista não possui nenhuma opção extra").show();
+    public void verEscolherFilial(ActionEvent actionEvent) {
     }
+
+    public void verEscolherTurma(ActionEvent actionEvent) {
+    }
+
+    public void verGradeHorarios(ActionEvent actionEvent) {
+        ObservableList t = table.getItems();
+        if (nomeTabela.getText().equals("Aluno") && table.getSelectionModel().getSelectedCells().size() == 1) {
+            String aux = null;
+            for (Object o : table.getSelectionModel().getSelectedCells()) {
+                aux = ((ObservableList) t.get(((TablePosition) o).getRow())).get(0).toString();
+            }
+            Stage stage = new Stage();
+            Parent root = null;
+            try {
+                root = FXMLLoader.load(
+                        Teste.class.getResource("alunoGrade.fxml"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            if (root != null) {
+                stage.setScene(new Scene(root));
+            }
+            stage.setTitle("Grade de horário");
+            stage.initModality(Modality.WINDOW_MODAL);
+            stage.initOwner(((Node) actionEvent.getSource()).getScene().getWindow());
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("alunoGrade.fxml"));
+            AlunoGrade controller =
+                    loader.<AlunoGrade>getController();
+            controller.initData(aux);
+            stage.show();
+        } else new Alert(Alert.AlertType.WARNING, "Selecione uma linha da tabela abaixo").show();
+    }
+
+    public void maisInfos(ActionEvent actionEvent) {
+    }
+
 }
