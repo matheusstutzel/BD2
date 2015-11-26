@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <GridPane xmlns:fx="http://javafx.com/fxml/1" fx:id="gridPane" alignment="CENTER" gridLinesVisible="true"
           maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0"
-          prefWidth="800.0" xmlns="http://javafx.com/javafx/8" fx:controller="telas.AlunoGrade">
+          prefWidth="800.0" xmlns="http://javafx.com/javafx/8" fx:controller="telas.ProfessorGrade">
     <columnConstraints>
         <ColumnConstraints minWidth="50.0" prefWidth="130.0"/>
         <ColumnConstraints minWidth="50.0" prefWidth="130.0"/>
