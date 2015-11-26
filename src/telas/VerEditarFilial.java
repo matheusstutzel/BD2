@@ -60,7 +60,7 @@ public class VerEditarFilial implements Initializable {
             stage.initOwner(btAddEdit.getScene().getWindow());
             AddEditarFilial controller =
                     root.<AddEditarFilial>getController();
-            controller.initData(btAddEdit.getText(), cod_filial, matricula);
+            controller.initData(btAddEdit.getText(), matricula);
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
