@@ -4,7 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.*?>
 <GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity"
-          minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
+          minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="250.0"
           xmlns="http://javafx.com/javafx/8" fx:controller="telas.VerEditarFilial">
     <columnConstraints>
         <ColumnConstraints maxWidth="95.0" minWidth="10.0" prefWidth="49.0"/>
@@ -13,12 +13,11 @@
     <rowConstraints>
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
     </rowConstraints>
     <children>
         <Button fx:id="btAddEdit" mnemonicParsing="false" onAction="#addEditFilial" text="Button"
-                GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-        <Label text="Filial: " GridPane.rowIndex="1"/>
-        <Label fx:id="filialName" text="" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+        <Label text="Filial: "/>
+        <Label fx:id="filialName" text="" GridPane.columnIndex="1"/>
     </children>
 </GridPane>

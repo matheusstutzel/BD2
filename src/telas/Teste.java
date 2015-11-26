@@ -221,7 +221,7 @@ public class Teste {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
+        } else new Alert(Alert.AlertType.WARNING, "Selecione uma linha da tabela abaixo").show();
     }
 
     public void verEscolherTurma(ActionEvent actionEvent) {

@@ -1,5 +1,6 @@
 package telas;
 
+import br.uerj.bd2_2015_2.DBHelper;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -22,7 +23,7 @@ public class AddEditarFilial extends Super implements Initializable {
     public Button btCancel;
     public MenuButton botaoFilial;
     String btText, matricula, newFilial;
-    Connection c;
+    Connection c = DBHelper.getInstance().connection;
 
     public void initData(String txt, String mat) {
         btText = txt;
@@ -53,7 +54,7 @@ public class AddEditarFilial extends Super implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        setMenuButton(botaoFilial, "Vinculado", "cod_filial,matricula_aluno", new NewThing.ItemClickListener() {
+        setMenuButton(botaoFilial, "Filial", "nome,cod_filial", new NewThing.ItemClickListener() {
             @Override
             public void onAction(HashMap<String, Object> s) {
                 newFilial = s.get("cod_filial").toString();
