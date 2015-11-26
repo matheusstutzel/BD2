@@ -199,6 +199,29 @@ public class Teste {
     }
 
     public void verEscolherFilial(ActionEvent actionEvent) {
+        ObservableList t = table.getItems();
+        if (nomeTabela.getText().equals("Aluno") && table.getSelectionModel().getSelectedCells().size() == 1) {
+            String aux = null;
+            for (Object o : table.getSelectionModel().getSelectedCells()) {
+                aux = ((ObservableList) t.get(((TablePosition) o).getRow())).get(0).toString();
+            }
+            Stage stage = new Stage();
+            FXMLLoader root = null;
+            try {
+                root = new FXMLLoader(
+                        Teste.class.getResource("../fxml/verEditarFilial.fxml"));
+                stage.setScene(new Scene((Pane) root.load()));
+                stage.setTitle("Ver/Escolher Filial");
+                stage.initModality(Modality.WINDOW_MODAL);
+                stage.initOwner(botaoMaisOpcoes.getScene().getWindow());
+                VerEditarFilial controller =
+                        root.<VerEditarFilial>getController();
+                controller.initData(aux);
+                stage.show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public void verEscolherTurma(ActionEvent actionEvent) {
