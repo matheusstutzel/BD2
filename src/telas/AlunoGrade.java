@@ -2,8 +2,8 @@ package telas;
 
 import br.uerj.bd2_2015_2.DBHelper;
 import javafx.scene.control.Label;
-import javafx.scene.layout.GridPane;
 import javafx.util.Pair;
+import telas.Super.Grade;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -14,22 +14,13 @@ import java.util.HashMap;
 /**
  * Created by ameix on 25/11/2015.
  */
-public class AlunoGrade {
-    public GridPane gridPane;
+public class AlunoGrade extends Grade {
     public HashMap<String, ArrayList<Pair<String, String>>> turmaHoraDia = new HashMap<String, ArrayList<Pair<String, String>>>();
     public HashMap<String, String> turmaDescri = new HashMap<String, String>();
-    private String matricula;
 
-    void initialize() {
-    }
 
-    void initData(String mat) {
-        matricula = mat;
-        getHorariosByMatricula(matricula);
-        //System.out.println(matricula);
-    }
-
-    void getHorariosByMatricula(String mat) {
+    @Override
+    public void getHorariosByMatricula(String mat) {
         Connection c = DBHelper.getInstance().connection;
         try {
             ResultSet rs = c.createStatement().executeQuery("SELECT cod_turma FROM Inscrito WHERE matricula_aluno=" + mat);

@@ -1,6 +1,7 @@
 package telas;
 
 import javafx.scene.control.TextField;
+import telas.Super.NewThing;
 
 import java.util.HashMap;
 
@@ -14,7 +15,7 @@ public class Filial extends NewThing {
 
     String codigo, nome, end;
     @Override
-    void testaInformacoes() {
+    protected void testaInformacoes() {
         codigo = CodigoTexto.getText();
         nome = NomeTexto.getText();
         end = EnderecoTexto.getText();
@@ -28,7 +29,7 @@ public class Filial extends NewThing {
     }
 
     @Override
-    HashMap<String, String> getParametros() {
+    protected HashMap<String, String> getParametros() {
         HashMap<String, String> hm = new HashMap<String, String>();
         hm.put("cod_filial", codigo);
         hm.put("endereco", end);

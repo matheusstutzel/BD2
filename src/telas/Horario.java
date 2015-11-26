@@ -1,6 +1,7 @@
 package telas;
 
 import javafx.scene.control.TextField;
+import telas.Super.NewThing;
 
 import java.util.HashMap;
 
@@ -13,7 +14,7 @@ public class Horario extends NewThing {
 
     String dia, inicio;
     @Override
-    void testaInformacoes() {
+    protected void testaInformacoes() {
         dia = diaTexto.getText();
         inicio = inicioTexto.getText();
         if (!testaString(dia)) {
@@ -30,7 +31,7 @@ public class Horario extends NewThing {
     }
 
     @Override
-    HashMap<String, String> getParametros() {
+    protected HashMap<String, String> getParametros() {
         HashMap<String, String> hm = new HashMap<String, String>();
         hm.put("dia", dia);
         hm.put("inicio", inicio);

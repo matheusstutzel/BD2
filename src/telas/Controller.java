@@ -25,7 +25,7 @@ public class Controller {
     public void sayHelloWorld(ActionEvent event) throws IOException {
         if (!testaArgumento()) new Alert(Alert.AlertType.ERROR, "Erro nos dados, tente novamente").show();
         else if (testaConexao()) {
-            Parent root = FXMLLoader.load(getClass().getResource("teste.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../fxml/teste.fxml"));
             Main.s.setScene(new Scene(root, 800, 600));
         } else new Alert(Alert.AlertType.ERROR, "Erro na conexão do Banco de Dados, tente novamente").show();
     }

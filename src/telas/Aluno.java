@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
+import telas.Super.NewThing;
 
 import java.util.HashMap;
 
@@ -20,7 +21,7 @@ public class Aluno extends NewThing {
     String matricula, nome, endereco, turno, desconto, mensalidade;
 
     @Override
-    void testaInformacoes() {
+    protected void testaInformacoes() {
         matricula = MatriculaTexto.getText();
         nome = NomeTexto.getText();
         endereco = EnderecoTexto.getText();
@@ -49,7 +50,7 @@ public class Aluno extends NewThing {
     }
 
     @Override
-    HashMap<String, String> getParametros() {
+    protected HashMap<String, String> getParametros() {
         HashMap<String, String> hm = new HashMap<String, String>();
         hm.put("matricula_aluno", matricula);
         hm.put("nome", nome);

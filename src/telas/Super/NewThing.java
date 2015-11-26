@@ -1,4 +1,4 @@
-package telas;
+package telas.Super;
 
 import br.uerj.bd2_2015_2.DBHelper;
 import javafx.concurrent.Task;
@@ -43,9 +43,9 @@ public abstract class NewThing implements Initializable {
         return this.getClass().getSimpleName();
     }
 
-    abstract void testaInformacoes();
+    protected abstract void testaInformacoes();
 
-    abstract HashMap<String, String> getParametros();
+    protected abstract HashMap<String, String> getParametros();
 
     public void volta(ActionEvent actionEvent) {
         sair();

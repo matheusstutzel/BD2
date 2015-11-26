@@ -215,7 +215,7 @@ public class Teste {
             FXMLLoader root = null;
             try {
                 root = new FXMLLoader(
-                        Teste.class.getResource("alunoGrade.fxml"));
+                        Teste.class.getResource("../fxml/alunoGrade.fxml"));
                 stage.setScene(new Scene((Pane) root.load()));
                 stage.setTitle("Grade de horário");
                 stage.initModality(Modality.WINDOW_MODAL);
@@ -236,7 +236,7 @@ public class Teste {
             FXMLLoader root = null;
             try {
                 root = new FXMLLoader(
-                        Teste.class.getResource("professorGrade.fxml"));
+                        Teste.class.getResource("../fxml/professorGrade.fxml"));
                 stage.setScene(new Scene((Pane) root.load()));
                 stage.setTitle("Grade de horário");
                 stage.initModality(Modality.WINDOW_MODAL);

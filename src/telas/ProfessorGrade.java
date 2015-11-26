@@ -6,59 +6,33 @@ package telas;
 
 import br.uerj.bd2_2015_2.DBHelper;
 import javafx.scene.control.Label;
-import javafx.scene.layout.GridPane;
-import javafx.util.Pair;
+import telas.Super.Grade;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class ProfessorGrade {
-    public GridPane gridPane;
-    public HashMap<String, ArrayList<Pair<String, String>>> turmaHoraDia = new HashMap<String, ArrayList<Pair<String, String>>>();
-    public HashMap<String, String> turmaDescri = new HashMap<String, String>();
-    private String matricula;
+public class ProfessorGrade extends Grade {
+    public HashMap<String, ArrayList<String[]>> turmaHoraDia = new HashMap<String, ArrayList<String[]>>();
 
-    void initialize() {
-    }
-
-    void initData(String mat) {
-        matricula = mat;
-        getHorariosByMatricula(matricula);
-        //System.out.println(matricula);
-    }
-
-    void getHorariosByMatricula(String mat) {
-        Connection c = DBHelper.getInstance().connection;
+    public void getHorariosByMatricula(String mat) {
         try {
-            ResultSet rs = c.createStatement().executeQuery("SELECT cod_turma FROM Ministrar WHERE matricula_professor=" + mat);
-            ResultSet rs2;
+            ResultSet rs = DBHelper.getInstance().connection.createStatement().executeQuery("select ma.cod_turma,ma.dia,(ma.inicio-7)as inicio,mat.nome from Ministrar m Join Turma t on(m.cod_turma=t.cod_turma) join Marcado ma on (t.cod_turma=ma.cod_turma) join Materia mat on(t.cod_materia=mat.cod_materia) where m.matricula_professor = " + mat);
+            String cod_turma, nome, dia, inicio;
             while (rs.next()) {
-                for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
-                    rs2 = c.createStatement().executeQuery("SELECT dia,inicio FROM Marcado WHERE cod_turma=" + rs.getString(i));
-                    while (rs2.next()) {
-                        for (int j = 1; j <= rs2.getMetaData().getColumnCount(); j = j + 2) {
-                            if (turmaHoraDia.get(rs.getString(i)) == null)
-                                turmaHoraDia.put(rs.getString(i), new ArrayList<Pair<String, String>>());
-                            turmaHoraDia.get(rs.getString(i)).add(new Pair<String, String>(rs2.getString(j), String.valueOf(Integer.parseInt(rs2.getString(j + 1)) - 7)));
-                            System.out.println((rs2.getString(j) + ";" + rs2.getString(j + 1)));
-                        }
-                    }
-                }
+                nome = rs.getString("nome");
+                dia = rs.getString("dia");
+                inicio = rs.getString("inicio");
+                cod_turma = rs.getString("cod_turma");
+                if (turmaHoraDia.get(cod_turma) == null)
+                    turmaHoraDia.put(cod_turma, new ArrayList<String[]>());
+                turmaHoraDia.get(cod_turma).add(new String[]{dia, inicio, nome});
+                System.out.println((dia + ";" + inicio + ";" + nome));
             }
             for (String key : turmaHoraDia.keySet()) {
-                ResultSet rr = c.createStatement().executeQuery("SELECT nome FROM Turma, Materia WHERE Turma.cod_materia=Materia.cod_materia and Turma.cod_turma=" + key);
-                while (rr.next()) {
-                    for (int i = 1; i <= rr.getMetaData().getColumnCount(); i++) {
-                        turmaDescri.put(key, rr.getString(i));
-                    }
-                }
-            }
-            for (String key : turmaHoraDia.keySet()) {
-                for (int i = 0; i < turmaHoraDia.get(key).size(); i++) {
-                    gridPane.add(new Label(key + "\n" + turmaDescri.get(key)), Integer.parseInt(turmaHoraDia.get(key).get(i).getKey()), Integer.parseInt(turmaHoraDia.get(key).get(i).getValue()));
+                for (String[] v : turmaHoraDia.get(key)) {
+                    gridPane.add(new Label(key + "\n" + v[2]), Integer.parseInt(v[0]), Integer.parseInt(v[1]));
                 }
             }
         } catch (SQLException e) {
