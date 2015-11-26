@@ -15,12 +15,19 @@ import java.util.HashMap;
  * Created by ameix on 26/11/2015.
  */
 public class Super {
+
+
     protected void setMenuButton(final MenuButton mb, final String table, final String column, final NewThing.ItemClickListener handler) {
+        setMenuButton(mb, table, column, handler, true);
+    }
+
+    protected void setMenuButton(final MenuButton mb, final String table, final String column, final NewThing.ItemClickListener handler, boolean convert) {
+        final String sql = (convert) ? DBHelper.getInstance().convertSelect(table, column, true, null, null, null, null, column + " asc", null) : table;
         new Thread(new Task<ArrayList<HashMap<String, Object>>>() {
             @Override
             protected ArrayList<HashMap<String, Object>> call() throws Exception {
                 ArrayList<HashMap<String, Object>> result = new ArrayList<HashMap<String, Object>>();
-                ResultSet r = DBHelper.getInstance().select(table, column, true, null, null, null, null, column + " asc", null);
+                ResultSet r = DBHelper.getInstance().select(sql);
                 String[] c = column.split(",");
                 HashMap<String, Object> t;
                 while (r.next()) {

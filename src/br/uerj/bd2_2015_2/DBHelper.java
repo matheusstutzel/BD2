@@ -81,10 +81,14 @@ public class DBHelper {
         }
     }
     public ResultSet select(@NotNull String table, boolean distinct, String selection, String[] selectionArgs, String groupBy, String having, String orderBy, String limit) throws SQLException {
-        return select(table, "*", distinct, selection, selectionArgs, groupBy, having, orderBy, limit);
+        return select(convertSelect(table, "*", distinct, selection, selectionArgs, groupBy, having, orderBy, limit));
     }
 
     public ResultSet select(@NotNull String table, @NotNull String column, boolean distinct, String selection, String[] selectionArgs, String groupBy, String having, String orderBy, String limit) throws SQLException {
+        return select(convertSelect(table, column, distinct, selection, selectionArgs, groupBy, having, orderBy, limit));
+    }
+
+    public String convertSelect(@NotNull String table, @NotNull String column, boolean distinct, String selection, String[] selectionArgs, String groupBy, String having, String orderBy, String limit) {
         StringBuilder b = new StringBuilder();
         b.append("SELECT ");
         if (distinct) b.append("DISTINCT ");
@@ -96,7 +100,11 @@ public class DBHelper {
         if (orderBy != null) b.append("ORDER BY ").append(orderBy).append(" ");
         if (limit != null) b.append("LIMIT ").append(limit);
         System.out.println(b.toString());
-        return connection.createStatement().executeQuery(b.toString());
+        return b.toString();
+    }
+
+    public ResultSet select(String sql) throws SQLException {
+        return connection.createStatement().executeQuery(sql);
     }
 
     private String convertArgs(String clause, String[] args) {

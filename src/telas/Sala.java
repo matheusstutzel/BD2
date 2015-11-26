@@ -41,7 +41,7 @@ public class Sala extends NewThing {
         hm.put("num_sala", codigo);
         hm.put("cod_filial", filial);
         hm.put("numMaxAlunos", alunos);
-        return null;
+        return hm;
     }
 
     @Override

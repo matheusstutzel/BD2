@@ -8,15 +8,13 @@ import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -34,6 +32,7 @@ public class Infos {
     private ObservableList<ObservableList> data;
     private ObservableList<Object> column;
     private int tipo = -1;
+    private String info;
 
     public void init(final String sql) {
         clearTable();
@@ -148,20 +147,24 @@ public class Infos {
 
     public void createDialogInsert(String tableName, ActionEvent actionEvent) {
         Stage stage = new Stage();
-        Parent root = null;
+        FXMLLoader root = null;
         try {
-            root = FXMLLoader.load(
-                    Teste.class.getResource("adicionar" + tableName + ".fxml"));
-        } catch (IOException e) {
+            root = new FXMLLoader(
+                    Teste.class.getResource("../fxml/adicionar" + tableName + ".fxml"));
+            stage.setScene(new Scene((Pane) root.load()));
+            stage.setTitle("Infos");
+            stage.initModality(Modality.WINDOW_MODAL);
+            stage.initOwner(botaoAdicionar.getScene().getWindow());
+            if (tipo == 0) {
+                Inscrito controller =
+                        root.<Inscrito>getController();
+                controller.init(info);
+            }
+
+            stage.show();
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        if (root != null) {
-            stage.setScene(new Scene(root));
-        }
-        stage.setTitle(tableName);
-        stage.initModality(Modality.WINDOW_MODAL);
-        stage.initOwner(((Node) actionEvent.getSource()).getScene().getWindow());
-        stage.show();
     }
 
     public void sair(ActionEvent actionEvent) {
@@ -169,6 +172,7 @@ public class Infos {
     }
 
     public void initTurma(String mat) {
+        info = mat;
         init("Select a.matricula_aluno,a.nome,t.cod_turma,t.num_sala,f.nome,m.nome from Aluno a Join Inscrito i on (i.matricula_aluno=a.matricula_aluno) join Turma t on (t.cod_turma = i.cod_turma)" +
                 "join Materia m on(m.cod_materia=t.cod_materia) join Filial f on (f.cod_filial=t.cod_filial) where a.matricula_aluno=" + mat);
         nomeTabela.setText("Inscrito");
