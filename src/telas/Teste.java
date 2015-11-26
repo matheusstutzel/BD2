@@ -185,7 +185,7 @@ public class Teste {
         Parent root = null;
         try {
             root = FXMLLoader.load(
-                    Teste.class.getResource("adicionar" + tableName + ".fxml"));
+                    Teste.class.getResource("../fxml/adicionar" + tableName + ".fxml"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -202,6 +202,27 @@ public class Teste {
     }
 
     public void verEscolherTurma(ActionEvent actionEvent) {
+        if (table.getSelectionModel().getSelectedCells().size() < 1)
+            new Alert(Alert.AlertType.WARNING, "Selecione uma linha da tabela abaixo").show();
+        else {
+            Stage stage = new Stage();
+            FXMLLoader root = null;
+            try {
+                root = new FXMLLoader(
+                        Teste.class.getResource("../fxml/verInfo.fxml"));
+                stage.setScene(new Scene((Pane) root.load()));
+                stage.setTitle("Infos");
+                stage.initModality(Modality.WINDOW_MODAL);
+                stage.initOwner(botaoMaisOpcoes.getScene().getWindow());
+                Infos controller =
+                        root.<Infos>getController();
+                Object o = table.getSelectionModel().getSelectedCells().get(0);
+                controller.initTurma(((ObservableList) data.get(((TablePosition) o).getRow())).get(0).toString());
+                stage.show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public void verGradeHorarios(ActionEvent actionEvent) {

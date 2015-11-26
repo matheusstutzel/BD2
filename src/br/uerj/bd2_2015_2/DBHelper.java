@@ -8,7 +8,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -30,11 +32,23 @@ public class DBHelper {
     }
 
     public static String criaDelete(String table, ObservableList o, ObservableList<Object> column) {
+        return criaDelete(table, o, convertColumn(column));
+    }
+
+    private static List convertColumn(ObservableList<Object> column) {
+        ArrayList a = new ArrayList();
+        for (Object o : column) {
+            a.add(((TableColumn) o).getText());
+        }
+        return a;
+    }
+
+    public static String criaDelete(String table, List o, List column) {
         if (o.size() < column.size()) throw new IllegalArgumentException("Existem mais valores do que colunas");
         StringBuilder sb = new StringBuilder();
         sb.append("Delete from ").append(table).append(" Where ");
         for (int i = 0; i < o.size(); i++) {
-            sb.append(((TableColumn) (column.get(i))).getText()).append("=\"").append(o.get(i)).append("\"");
+            sb.append(column.get(i)).append("=\"").append(o.get(i)).append("\"");
             if (i + 1 < o.size()) sb.append(" and ");
         }
         return sb.toString();

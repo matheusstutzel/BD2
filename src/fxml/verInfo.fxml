@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--fx:id="helloWorld"-->
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="center" hgap="10" maxHeight="1.7976931348623157E308"
+          maxWidth="1.7976931348623157E308" vgap="10" xmlns="http://javafx.com/javafx/8" fx:controller="telas.Infos">
+    <children>
+        <FlowPane xmlns:fx="http://javafx.com/fxml/1" alignment="center" hgap="10" vgap="10"
+                  xmlns="http://javafx.com/javafx/8">
+            <children>
+                <Label fx:id="nomeTabela" text="Nome Tabela"/>
+                <Button fx:id="botaoAdicionar" mnemonicParsing="false" onAction="#insert" text="+"/>
+                <Button fx:id="botaoExcluir" mnemonicParsing="false" onAction="#delete" text="-"/>
+            </children>
+        </FlowPane>
+        <TableView fx:id="table" GridPane.rowIndex="4"/>
+        <Button fx:id="sair" mnemonicParsing="false" onAction="#sair" text="Sair" textFill="#dd0000"
+                GridPane.columnIndex="1"/>
+    </children>
+    <columnConstraints>
+        <ColumnConstraints maxWidth="525.0" minWidth="30.0" prefWidth="508.0"/>
+        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="640.0" minWidth="22.0" prefWidth="39.0"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="25.0" minHeight="25.0" prefHeight="25.0"/>
+        <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0"/>
+        <RowConstraints/>
+        <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0"/>
+        <RowConstraints maxHeight="370.0" minHeight="370.0" prefHeight="370.0"/>
+        <RowConstraints/>
+        <RowConstraints/>
+    </rowConstraints>
+</GridPane>

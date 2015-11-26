@@ -16,7 +16,6 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.ResourceBundle;
-import java.util.concurrent.ExecutionException;
 
 /**
  * Created by Matheus on 22/11/2015.
@@ -114,6 +113,7 @@ public abstract class NewThing implements Initializable {
                     for (String s : c) {
                         t.put(s, r.getObject(s));
                     }
+                    System.out.println(t);
                     result.add(t);
                 }
                 return result;
@@ -136,9 +136,7 @@ public abstract class NewThing implements Initializable {
                         mb.getItems().add(m);
                         System.out.println("Add " + m.getText());
                     }
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (ExecutionException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }

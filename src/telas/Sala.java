@@ -46,7 +46,7 @@ public class Sala extends NewThing {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        setMenuButton(botaoFilial, "Filial", "nome, cod_filial", new ItemClickListener() {
+        setMenuButton(botaoFilial, "Filial", "nome,cod_filial", new ItemClickListener() {
             @Override
             public void onAction(HashMap<String, Object> s) {
                 filial = s.get("cod_filial").toString();
