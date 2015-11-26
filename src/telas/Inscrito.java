@@ -29,11 +29,11 @@ public class Inscrito extends NewThing {
 
     public void init(String mat) {
         this.mat = mat;
-        String sql = "";
-        setMenuButton(botaoTurma, sql, "nome,cod_filial", new ItemClickListener() {
+        String sql = "select m.nome as nome,t.cod_turma from Turma t join Materia m on(t.cod_materia=m.cod_materia) where t.cod_turma not in(select i.cod_turma from Inscrito i where i.matricula_aluno=" + mat + ")";
+        setMenuButton(botaoTurma, sql, "nome,cod_turma", new ItemClickListener() {
             @Override
             public void onAction(HashMap<String, Object> s) {
-                turma = s.get("cod_filial").toString();
+                turma = s.get("cod_turma").toString();
             }
         }, false);
     }
