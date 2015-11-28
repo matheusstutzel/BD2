@@ -19,7 +19,7 @@ public static Stage s;
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("../fxml/sample.fxml"));
         //todo trocar titulo e trocar nome dos campos
-        primaryStage.setTitle("Hello World");
+        primaryStage.setTitle("Banco de Dados II");
         primaryStage.setScene(new Scene(root, 300, 200));
         primaryStage.show();
         s = primaryStage;

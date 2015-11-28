@@ -38,6 +38,7 @@ public class Controller {
     private boolean verificaTabelas(Connection c) {
         try {
             c.createStatement().executeQuery("SELECT * FROM Aluno");
+            c.createStatement().executeQuery("SELECT * FROM Professor");
         } catch (SQLException e) {
             try {
                 c.createStatement().executeQuery(DBConfig.createFilial);
