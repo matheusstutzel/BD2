@@ -4,16 +4,14 @@
 <?import javafx.scene.layout.*?>
 <GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity"
           minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
-          xmlns="http://javafx.com/javafx/8" fx:controller="telas.MaisInfosAluno">
+          xmlns="http://javafx.com/javafx/8" fx:controller="telas.MaisInfosProfessor">
     <columnConstraints>
         <ColumnConstraints maxWidth="95.0" minWidth="10.0" prefWidth="93.0"/>
         <ColumnConstraints maxWidth="136.0" minWidth="10.0" prefWidth="107.0"/>
         <ColumnConstraints maxWidth="200.0" minWidth="10.0" prefWidth="200.0"/>
-        <ColumnConstraints maxWidth="94.0" minWidth="0.0" prefWidth="0.0"/>
+        <ColumnConstraints maxWidth="95.0" minWidth="0.0" prefWidth="0.0"/>
     </columnConstraints>
     <rowConstraints>
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
@@ -27,18 +25,14 @@
         <Label text="Matrícula" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
         <Label text="Nome" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
         <Label text="Endereço" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
-        <Label text="Turno" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
-        <Label text="Desconto" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
-        <Label text="Mensalidade Básica" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+        <Label text="Hora Aula" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+        <Label text="Salário" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+        <Label text="Materias" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
         <Label fx:id="matricula" text="a" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
         <Label fx:id="nome" text="b" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
         <Label fx:id="endereco" text="c" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
-        <Label fx:id="turno" text="d" GridPane.columnIndex="2" GridPane.rowIndex="4"/>
-        <Label fx:id="desconto" text="e" GridPane.columnIndex="2" GridPane.rowIndex="5"/>
-        <Label fx:id="menBas" text="f" GridPane.columnIndex="2" GridPane.rowIndex="6"/>
-        <Label text="Mensalidade Total" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
-        <Label fx:id="menTotal" text="g" GridPane.columnIndex="2" GridPane.rowIndex="7"/>
-        <Label text="Materias" GridPane.columnIndex="1" GridPane.rowIndex="8"/>
-        <Label fx:id="materias" text="h" GridPane.columnIndex="2" GridPane.rowIndex="8"/>
+        <Label fx:id="horaAula" text="d" GridPane.columnIndex="2" GridPane.rowIndex="4"/>
+        <Label fx:id="salario" text="e" GridPane.columnIndex="2" GridPane.rowIndex="5"/>
+        <Label fx:id="materias" text="f" GridPane.columnIndex="2" GridPane.rowIndex="6"/>
     </children>
 </GridPane>

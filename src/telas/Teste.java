@@ -308,7 +308,7 @@ public class Teste {
                 root = new FXMLLoader(
                         Teste.class.getResource("../fxml/maisInfosAluno.fxml"));
                 stage.setScene(new Scene((Pane) root.load()));
-                stage.setTitle("Grade de horário");
+                stage.setTitle("Mais Informações");
                 stage.initModality(Modality.WINDOW_MODAL);
                 stage.initOwner(botaoMaisOpcoes.getScene().getWindow());
                 MaisInfosAluno controller =
@@ -318,7 +318,28 @@ public class Teste {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
+        } else if (nomeTabela.getText().equals("Professor") && table.getSelectionModel().getSelectedCells().size() == 1) {
+            String aux = null;
+            for (Object o : table.getSelectionModel().getSelectedCells()) {
+                aux = ((ObservableList) t.get(((TablePosition) o).getRow())).get(0).toString();
+            }
+            Stage stage = new Stage();
+            FXMLLoader root = null;
+            try {
+                root = new FXMLLoader(
+                        Teste.class.getResource("../fxml/maisInfosProfessor.fxml"));
+                stage.setScene(new Scene((Pane) root.load()));
+                stage.setTitle("Mais Informações");
+                stage.initModality(Modality.WINDOW_MODAL);
+                stage.initOwner(botaoMaisOpcoes.getScene().getWindow());
+                MaisInfosProfessor controller =
+                        root.<MaisInfosProfessor>getController();
+                controller.initData(aux);
+                stage.show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else new Alert(Alert.AlertType.WARNING, "Selecione uma linha da tabela abaixo").show();
     }
 
     public void verListaAlunos(ActionEvent actionEvent) {
