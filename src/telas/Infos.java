@@ -159,8 +159,11 @@ public class Infos {
                 Inscrito controller =
                         root.<Inscrito>getController();
                 controller.init(info);
+            } else if (tipo == 1) {
+                Marcado controller =
+                        root.<Marcado>getController();
+                controller.init(info);
             }
-
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
@@ -177,5 +180,12 @@ public class Infos {
                 "join Materia m on(m.cod_materia=t.cod_materia) join Filial f on (f.cod_filial=t.cod_filial) where a.matricula_aluno=" + mat);
         nomeTabela.setText("Inscrito");
         tipo = 0;
+    }
+
+    public void initHorario(String mat) {
+        info = mat;
+        init("Select * From Marcado Where cod_turma=" + mat);
+        nomeTabela.setText("Marcado");
+        tipo = 1;
     }
 }

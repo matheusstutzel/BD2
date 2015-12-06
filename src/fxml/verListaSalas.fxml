@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--fx:id="helloWorld"-->
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.*?>
+<GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="center" hgap="10" maxHeight="1.7976931348623157E308"
+          maxWidth="1.7976931348623157E308" vgap="10" xmlns="http://javafx.com/javafx/8"
+          fx:controller="telas.VerListaSalas">
+    <children>
+        <FlowPane xmlns:fx="http://javafx.com/fxml/1" alignment="center" hgap="10" vgap="10"
+                  xmlns="http://javafx.com/javafx/8">
+            <children>
+                <Label fx:id="nomeTabela" text="Nome Tabela"/>
+            </children>
+        </FlowPane>
+        <TableView fx:id="table" GridPane.rowIndex="4"/>
+        <Button fx:id="sair" mnemonicParsing="false" onAction="#sair" text="Sair" textFill="#dd0000"
+                GridPane.columnIndex="1"/>
+    </children>
+    <columnConstraints>
+        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="640.0" minWidth="480.0" prefWidth="292.0"/>
+        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="95.0" minWidth="0.0" prefWidth="56.0"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="25.0" minHeight="25.0" prefHeight="25.0"/>
+        <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0"/>
+        <RowConstraints/>
+        <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0"/>
+        <RowConstraints maxHeight="370.0" minHeight="370.0" prefHeight="370.0"/>
+        <RowConstraints/>
+        <RowConstraints/>
+    </rowConstraints>
+</GridPane>

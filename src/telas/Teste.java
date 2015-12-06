@@ -296,6 +296,137 @@ public class Teste {
     }
 
     public void maisInfos(ActionEvent actionEvent) {
+        ObservableList t = table.getItems();
+        if (nomeTabela.getText().equals("Aluno") && table.getSelectionModel().getSelectedCells().size() == 1) {
+            String aux = null;
+            for (Object o : table.getSelectionModel().getSelectedCells()) {
+                aux = ((ObservableList) t.get(((TablePosition) o).getRow())).get(0).toString();
+            }
+            Stage stage = new Stage();
+            FXMLLoader root = null;
+            try {
+                root = new FXMLLoader(
+                        Teste.class.getResource("../fxml/maisInfosAluno.fxml"));
+                stage.setScene(new Scene((Pane) root.load()));
+                stage.setTitle("Grade de horário");
+                stage.initModality(Modality.WINDOW_MODAL);
+                stage.initOwner(botaoMaisOpcoes.getScene().getWindow());
+                MaisInfosAluno controller =
+                        root.<MaisInfosAluno>getController();
+                controller.initData(aux);
+                stage.show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
+    public void verListaAlunos(ActionEvent actionEvent) {
+        ObservableList t = table.getItems();
+        if (nomeTabela.getText().equals("Filial") && table.getSelectionModel().getSelectedCells().size() == 1) {
+            String aux = null;
+            for (Object o : table.getSelectionModel().getSelectedCells()) {
+                aux = ((ObservableList) t.get(((TablePosition) o).getRow())).get(0).toString();
+            }
+            Stage stage = new Stage();
+            FXMLLoader root = null;
+            try {
+                root = new FXMLLoader(
+                        Teste.class.getResource("../fxml/verListaAlunos.fxml"));
+                stage.setScene(new Scene((Pane) root.load()));
+                stage.setTitle("Ver Lista de Alunos");
+                stage.initModality(Modality.WINDOW_MODAL);
+                stage.initOwner(botaoMaisOpcoes.getScene().getWindow());
+                VerListaAlunos controller =
+                        root.<VerListaAlunos>getController();
+                controller.initData(aux);
+                stage.show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else new Alert(Alert.AlertType.WARNING, "Selecione uma linha da tabela abaixo").show();
+    }
+
+    public void verListaSalas(ActionEvent actionEvent) {
+        ObservableList t = table.getItems();
+        if (nomeTabela.getText().equals("Filial") && table.getSelectionModel().getSelectedCells().size() == 1) {
+            String aux = null;
+            for (Object o : table.getSelectionModel().getSelectedCells()) {
+                aux = ((ObservableList) t.get(((TablePosition) o).getRow())).get(0).toString();
+            }
+            Stage stage = new Stage();
+            FXMLLoader root = null;
+            try {
+                root = new FXMLLoader(
+                        Teste.class.getResource("../fxml/verListaSalas.fxml"));
+                stage.setScene(new Scene((Pane) root.load()));
+                stage.setTitle("Ver Lista de Salas");
+                stage.initModality(Modality.WINDOW_MODAL);
+                stage.initOwner(botaoMaisOpcoes.getScene().getWindow());
+                VerListaSalas controller =
+                        root.<VerListaSalas>getController();
+                controller.initData(aux);
+                stage.show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else new Alert(Alert.AlertType.WARNING, "Selecione uma linha da tabela abaixo").show();
+    }
+
+    public void verProfessor(ActionEvent actionEvent) {
+        ObservableList t = table.getItems();
+        if (nomeTabela.getText().equals("Turma") && table.getSelectionModel().getSelectedCells().size() == 1) {
+            String aux = null;
+            for (Object o : table.getSelectionModel().getSelectedCells()) {
+                aux = ((ObservableList) t.get(((TablePosition) o).getRow())).get(0).toString();
+            }
+            Stage stage = new Stage();
+            FXMLLoader root = null;
+            try {
+                root = new FXMLLoader(
+                        Teste.class.getResource("../fxml/verProfessor.fxml"));
+                stage.setScene(new Scene((Pane) root.load()));
+                stage.setTitle("Ver Lista de Salas");
+                stage.initModality(Modality.WINDOW_MODAL);
+                stage.initOwner(botaoMaisOpcoes.getScene().getWindow());
+                VerProfessor controller =
+                        root.<VerProfessor>getController();
+                controller.initData(aux);
+                stage.show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else new Alert(Alert.AlertType.WARNING, "Selecione uma linha da tabela abaixo").show();
+
+    }
+
+    public void verEscolherHorarios(ActionEvent actionEvent) {
+        if (table.getSelectionModel().getSelectedCells().size() < 1)
+            new Alert(Alert.AlertType.WARNING, "Selecione uma linha da tabela abaixo").show();
+        else {
+            Stage stage = new Stage();
+            FXMLLoader root = null;
+            try {
+                root = new FXMLLoader(
+                        Teste.class.getResource("../fxml/verInfo.fxml"));
+                stage.setScene(new Scene((Pane) root.load()));
+                stage.setTitle("Infos");
+                stage.initModality(Modality.WINDOW_MODAL);
+                stage.initOwner(botaoMaisOpcoes.getScene().getWindow());
+                Infos controller =
+                        root.<Infos>getController();
+                Object o = table.getSelectionModel().getSelectedCells().get(0);
+                controller.initHorario(((ObservableList) data.get(((TablePosition) o).getRow())).get(0).toString());
+                stage.show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void verEscolherMateria(ActionEvent actionEvent) {
+    }
+
+    public void verEscolherHorario(ActionEvent actionEvent) {
+    }
 }
