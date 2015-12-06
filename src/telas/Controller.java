@@ -14,6 +14,7 @@ import javafx.scene.control.TextField;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class Controller {
     public Label helloWorld;
@@ -41,48 +42,58 @@ public class Controller {
             c.createStatement().executeQuery("SELECT * FROM Professor");
         } catch (SQLException e) {
             try {
-                c.createStatement().executeQuery(DBConfig.createFilial);
-                c.createStatement().executeQuery(DBConfig.createAluno);
-                c.createStatement().executeQuery(DBConfig.createSala);
-                c.createStatement().executeQuery(DBConfig.createVinculado);
-                c.createStatement().executeQuery(DBConfig.createMateria);
-                c.createStatement().executeQuery(DBConfig.createTurma);
-                c.createStatement().executeQuery(DBConfig.createInscrito);
-                c.createStatement().executeQuery(DBConfig.createHorario);
-                c.createStatement().executeQuery(DBConfig.createMarcado);
-                c.createStatement().executeQuery(DBConfig.createProfessor);
-                c.createStatement().executeQuery(DBConfig.createDisponivel);
-                c.createStatement().executeQuery(DBConfig.createMinistrar);
-                c.createStatement().executeQuery(DBConfig.createLeciona);
-                c.createStatement().executeQuery(DBConfig.triggerAttTurma);
-                c.createStatement().executeQuery(DBConfig.triggerAttTurmaLog);
-                c.createStatement().executeQuery(DBConfig.triggerDelTurmaLog);
-                c.createStatement().executeQuery(DBConfig.triggerInsertTurmaLog);
-                c.createStatement().executeQuery(DBConfig.functionMensalidadeJuros);
-                c.createStatement().executeQuery(DBConfig.functionSalario);
-                c.createStatement().executeQuery(DBConfig.functionMateriasAluno);
-                c.createStatement().executeQuery(DBConfig.procedureInsereMinistrar);
-                c.createStatement().executeQuery(DBConfig.procedureInsereInscrito);
-                c.createStatement().executeQuery(DBConfig.procedureInsereTurma);
-                c.createStatement().executeQuery(DBConfig.insertFilial);
-                c.createStatement().executeQuery(DBConfig.insertSala);
-                c.createStatement().executeQuery(DBConfig.insertAluno);
-                c.createStatement().executeQuery(DBConfig.insertVinculado);
-                c.createStatement().executeQuery(DBConfig.insertMateria);
-                c.createStatement().executeQuery(DBConfig.insertHorario);
-                c.createStatement().executeQuery(DBConfig.insertProfessor);
-                c.createStatement().executeQuery(DBConfig.insertDisponivel);
-                c.createStatement().executeQuery(DBConfig.insertLeciona);
-                c.createStatement().executeQuery(DBConfig.insertTurma);
-                c.createStatement().executeQuery(DBConfig.insertInscrito);
-                c.createStatement().executeQuery(DBConfig.insertMinistrar);
-                c.createStatement().executeQuery(DBConfig.insertMarcado);
-                c.createStatement().executeQuery(DBConfig.viewAlunoFilial);
-                c.createStatement().executeQuery(DBConfig.viewAlunoMateria);
-                c.createStatement().executeQuery(DBConfig.viewAlunoMensalidade);
-                c.createStatement().executeQuery(DBConfig.viewLeciona);
-                c.createStatement().executeQuery(DBConfig.viewProfessorInfo);
-                c.createStatement().executeQuery(DBConfig.viewProfessorSalario);
+                c.createStatement().execute(DBConfig.createFilial);
+                c.createStatement().execute(DBConfig.createAluno);
+                c.createStatement().execute(DBConfig.createSala);
+                c.createStatement().execute(DBConfig.createVinculado);
+                c.createStatement().execute(DBConfig.createMateria);
+                c.createStatement().execute(DBConfig.createTurma);
+                c.createStatement().execute(DBConfig.createInscrito);
+                c.createStatement().execute(DBConfig.createHorario);
+                c.createStatement().execute(DBConfig.createMarcado);
+                c.createStatement().execute(DBConfig.createProfessor);
+                c.createStatement().execute(DBConfig.createDisponivel);
+                c.createStatement().execute(DBConfig.createMinistrar);
+                c.createStatement().execute(DBConfig.createLeciona);
+                c.createStatement().execute(DBConfig.triggerAttTurma);
+                c.createStatement().execute(DBConfig.triggerAttTurmaLog);
+                c.createStatement().execute(DBConfig.triggerDelTurmaLog);
+                c.createStatement().execute(DBConfig.triggerInsertTurmaLog);
+                c.createStatement().execute(DBConfig.functionMensalidadeJuros);
+                c.createStatement().execute(DBConfig.functionSalario);
+                c.createStatement().execute(DBConfig.functionMateriasAluno);
+                c.createStatement().execute(DBConfig.procedureInsereMinistrar);
+                c.createStatement().execute(DBConfig.procedureInsereInscrito);
+                c.createStatement().execute(DBConfig.procedureInsereTurma);
+                String[][] aux = new String[][]{
+                        DBConfig.insertFilial,
+                        DBConfig.insertSala,
+                        DBConfig.insertAluno,
+                        DBConfig.insertVinculado,
+                        DBConfig.insertMateria,
+                        DBConfig.insertHorario,
+                        DBConfig.insertProfessor,
+                        DBConfig.insertDisponivel,
+                        DBConfig.insertLeciona,
+                        DBConfig.insertTurma,
+                        DBConfig.insertInscrito,
+                        DBConfig.insertMinistrar,
+                        DBConfig.insertMarcado
+                };
+                Statement stm = c.createStatement();
+                stm.clearBatch();
+                for (String[] strings : aux) {
+                    for (String s : strings) {
+                        stm.addBatch(s);
+                    }
+                }
+                stm.executeBatch();
+                c.createStatement().execute(DBConfig.viewAlunoFilial);
+                c.createStatement().execute(DBConfig.viewAlunoMateria);
+                c.createStatement().execute(DBConfig.viewAlunoMensalidade);
+                c.createStatement().execute(DBConfig.viewLeciona);
+                c.createStatement().execute(DBConfig.viewProfessorInfo);
+                c.createStatement().execute(DBConfig.viewProfessorSalario);
             } catch (SQLException e1) {
                 e1.printStackTrace();
             }
