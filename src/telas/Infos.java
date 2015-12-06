@@ -163,6 +163,14 @@ public class Infos {
                 Marcado controller =
                         root.<Marcado>getController();
                 controller.init(info);
+            } else if (tipo == 2) {
+                Disponivel controller =
+                        root.<Disponivel>getController();
+                controller.init(info);
+            } else if (tipo == 3) {
+                Leciona controller =
+                        root.<Leciona>getController();
+                controller.init(info);
             }
             stage.show();
         } catch (Exception e) {
@@ -187,5 +195,19 @@ public class Infos {
         init("Select * From Marcado Where cod_turma=" + mat);
         nomeTabela.setText("Marcado");
         tipo = 1;
+    }
+
+    public void initHorario2(String mat) {
+        info = mat;
+        init("Select * From Disponivel Where matricula_professor=" + mat);
+        nomeTabela.setText("Disponivel");
+        tipo = 2;
+    }
+
+    public void initMateria(String mat) {
+        info = mat;
+        init("Select * From Leciona Where matricula_professor=" + mat);
+        nomeTabela.setText("Leciona");
+        tipo = 3;
     }
 }

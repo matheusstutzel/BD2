@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--fx:id="helloWorld"-->
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<GridPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+          minWidth="-Infinity" prefHeight="142.0" prefWidth="404.0" xmlns="http://javafx.com/javafx/8"
+          fx:controller="telas.VerTurma">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="197.0" minWidth="10.0" prefWidth="54.0"/>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="363.0" minWidth="10.0" prefWidth="350.0"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+    </rowConstraints>
+    <children>
+        <Label text="Turma"/>
+        <Label fx:id="nome" text="Label" GridPane.columnIndex="1"/>
+    </children>
+</GridPane>

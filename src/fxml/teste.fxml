@@ -42,6 +42,8 @@
                                   text="Ver/Escolher Matéria"/> <!-- Professor !-->
                         <MenuItem mnemonicParsing="false" onAction="#verEscolherHorario"
                                   text="Ver/Escolher Horário"/> <!-- Professor !-->
+                        <MenuItem mnemonicParsing="false" onAction="#verTurma"
+                                  text="Ver Turma"/> <!-- Professor !-->
                         <MenuItem mnemonicParsing="false" onAction="#maisInfos" text="Mais Informações"/>
                     </items>
                 </MenuButton>

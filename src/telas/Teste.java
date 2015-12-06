@@ -425,8 +425,76 @@ public class Teste {
     }
 
     public void verEscolherMateria(ActionEvent actionEvent) {
+        if (nomeTabela.getText().equals("Professor") && table.getSelectionModel().getSelectedCells().size() < 1)
+            new Alert(Alert.AlertType.WARNING, "Selecione uma linha da tabela abaixo").show();
+        else {
+            Stage stage = new Stage();
+            FXMLLoader root = null;
+            try {
+                root = new FXMLLoader(
+                        Teste.class.getResource("../fxml/verInfo.fxml"));
+                stage.setScene(new Scene((Pane) root.load()));
+                stage.setTitle("Infos");
+                stage.initModality(Modality.WINDOW_MODAL);
+                stage.initOwner(botaoMaisOpcoes.getScene().getWindow());
+                Infos controller =
+                        root.<Infos>getController();
+                Object o = table.getSelectionModel().getSelectedCells().get(0);
+                controller.initMateria(((ObservableList) data.get(((TablePosition) o).getRow())).get(0).toString());
+                stage.show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public void verEscolherHorario(ActionEvent actionEvent) {
+        if (table.getSelectionModel().getSelectedCells().size() < 1)
+            new Alert(Alert.AlertType.WARNING, "Selecione uma linha da tabela abaixo").show();
+        else {
+            Stage stage = new Stage();
+            FXMLLoader root = null;
+            try {
+                root = new FXMLLoader(
+                        Teste.class.getResource("../fxml/verInfo.fxml"));
+                stage.setScene(new Scene((Pane) root.load()));
+                stage.setTitle("Infos");
+                stage.initModality(Modality.WINDOW_MODAL);
+                stage.initOwner(botaoMaisOpcoes.getScene().getWindow());
+                Infos controller =
+                        root.<Infos>getController();
+                Object o = table.getSelectionModel().getSelectedCells().get(0);
+                controller.initHorario2(((ObservableList) data.get(((TablePosition) o).getRow())).get(0).toString());
+                stage.show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void verTurma(ActionEvent actionEvent) {
+        ObservableList t = table.getItems();
+        if (nomeTabela.getText().equals("Professor") && table.getSelectionModel().getSelectedCells().size() == 1) {
+            String aux = null;
+            for (Object o : table.getSelectionModel().getSelectedCells()) {
+                aux = ((ObservableList) t.get(((TablePosition) o).getRow())).get(0).toString();
+            }
+            Stage stage = new Stage();
+            FXMLLoader root = null;
+            try {
+                root = new FXMLLoader(
+                        Teste.class.getResource("../fxml/verTurma.fxml"));
+                stage.setScene(new Scene((Pane) root.load()));
+                stage.setTitle("Ver Lista de Salas");
+                stage.initModality(Modality.WINDOW_MODAL);
+                stage.initOwner(botaoMaisOpcoes.getScene().getWindow());
+                VerTurma controller =
+                        root.<VerTurma>getController();
+                controller.initData(aux);
+                stage.show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else new Alert(Alert.AlertType.WARNING, "Selecione uma linha da tabela abaixo").show();
     }
 }
