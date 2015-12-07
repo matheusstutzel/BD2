@@ -132,46 +132,46 @@ public class Infos {
                 System.out.println(delete);
             }
             if (tipo == 1) {
-                //// TODO: 07/12/2015  
                 ArrayList<String> row = new ArrayList<String>();
                 row.add(((ObservableList) t.get(((TablePosition) o).getRow())).get(0).toString());
+                row.add(((ObservableList) t.get(((TablePosition) o).getRow())).get(1).toString());
                 row.add(((ObservableList) t.get(((TablePosition) o).getRow())).get(2).toString());
                 ArrayList<String> colunas = new ArrayList<String>();
                 colunas.add(((TableColumn) (column).get(0)).getText());
+                colunas.add(((TableColumn) (column).get(1)).getText());
                 colunas.add(((TableColumn) (column).get(2)).getText());
                 delete = DBHelper.criaDelete(nomeTabela.getText(), row, colunas);
                 System.out.println(delete);
             }
             if (tipo == 2) {
-                // TODO: 07/12/2015  
                 ArrayList<String> row = new ArrayList<String>();
                 row.add(((ObservableList) t.get(((TablePosition) o).getRow())).get(0).toString());
+                row.add(((ObservableList) t.get(((TablePosition) o).getRow())).get(1).toString());
                 row.add(((ObservableList) t.get(((TablePosition) o).getRow())).get(2).toString());
                 ArrayList<String> colunas = new ArrayList<String>();
                 colunas.add(((TableColumn) (column).get(0)).getText());
+                colunas.add(((TableColumn) (column).get(1)).getText());
                 colunas.add(((TableColumn) (column).get(2)).getText());
                 delete = DBHelper.criaDelete(nomeTabela.getText(), row, colunas);
                 System.out.println(delete);
             }
             if (tipo == 3) {
-                // TODO: 07/12/2015  
                 ArrayList<String> row = new ArrayList<String>();
                 row.add(((ObservableList) t.get(((TablePosition) o).getRow())).get(0).toString());
-                row.add(((ObservableList) t.get(((TablePosition) o).getRow())).get(2).toString());
+                row.add(((ObservableList) t.get(((TablePosition) o).getRow())).get(1).toString());
                 ArrayList<String> colunas = new ArrayList<String>();
                 colunas.add(((TableColumn) (column).get(0)).getText());
-                colunas.add(((TableColumn) (column).get(2)).getText());
+                colunas.add(((TableColumn) (column).get(1)).getText());
                 delete = DBHelper.criaDelete(nomeTabela.getText(), row, colunas);
                 System.out.println(delete);
             }
             if (tipo == 4) {
-                // TODO: 07/12/2015  
                 ArrayList<String> row = new ArrayList<String>();
                 row.add(((ObservableList) t.get(((TablePosition) o).getRow())).get(0).toString());
-                row.add(((ObservableList) t.get(((TablePosition) o).getRow())).get(2).toString());
+                row.add(((ObservableList) t.get(((TablePosition) o).getRow())).get(1).toString());
                 ArrayList<String> colunas = new ArrayList<String>();
                 colunas.add(((TableColumn) (column).get(0)).getText());
-                colunas.add(((TableColumn) (column).get(2)).getText());
+                colunas.add(((TableColumn) (column).get(1)).getText());
                 delete = DBHelper.criaDelete(nomeTabela.getText(), row, colunas);
                 System.out.println(delete);
             }
