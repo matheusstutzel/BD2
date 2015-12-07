@@ -560,14 +560,15 @@ public class Teste implements Initializable {
             try {
                 //// TODO: 07/12/2015 chamar Infos com  initTurmas
                 root = new FXMLLoader(
-                        Teste.class.getResource("../fxml/verTurma.fxml"));
+                        Teste.class.getResource("../fxml/verInfo.fxml"));
                 stage.setScene(new Scene((Pane) root.load()));
                 stage.setTitle("Ver Turma");
                 stage.initModality(Modality.WINDOW_MODAL);
                 stage.initOwner(botaoMaisOpcoes.getScene().getWindow());
-                VerTurma controller =
-                        root.<VerTurma>getController();
-                controller.initData(aux);
+                Infos controller =
+                        root.<Infos>getController();
+                Object o = table.getSelectionModel().getSelectedCells().get(0);
+                controller.initTurmas(((ObservableList) data.get(((TablePosition) o).getRow())).get(0).toString());
                 stage.show();
             } catch (Exception e) {
                 e.printStackTrace();

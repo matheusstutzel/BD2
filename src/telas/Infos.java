@@ -217,8 +217,8 @@ public class Infos {
                 controller.init(info);
             } else if (tipo == 4) {
                 //todo 
-                Leciona controller =
-                        root.<Leciona>getController();
+                Ministrar controller =
+                        root.<Ministrar>getController();
                 controller.init(info);
             }
             stage.show();
@@ -263,8 +263,8 @@ public class Infos {
     public void initTurmas(String mat) {
         // TODO: 07/12/2015
         info = mat;
-        init("Select * From Leciona Where matricula_professor=" + mat);
-        nomeTabela.setText("Leciona");
+        init("Select * From Ministrar Where matricula_professor=" + mat);
+        nomeTabela.setText("Ministrar");
         tipo = 4;
     }
 }
