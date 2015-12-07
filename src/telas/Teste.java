@@ -410,7 +410,7 @@ public class Teste implements Initializable {
                 root = new FXMLLoader(
                         Teste.class.getResource("../fxml/verListaAlunos.fxml"));
                 stage.setScene(new Scene((Pane) root.load()));
-                stage.setTitle("Ver Lista de Alunos");
+                stage.setTitle("Lista de Alunos");
                 stage.initModality(Modality.WINDOW_MODAL);
                 stage.initOwner(botaoMaisOpcoes.getScene().getWindow());
                 VerListaAlunos controller =
@@ -436,7 +436,7 @@ public class Teste implements Initializable {
                 root = new FXMLLoader(
                         Teste.class.getResource("../fxml/verListaSalas.fxml"));
                 stage.setScene(new Scene((Pane) root.load()));
-                stage.setTitle("Ver Lista de Salas");
+                stage.setTitle("Salas");
                 stage.initModality(Modality.WINDOW_MODAL);
                 stage.initOwner(botaoMaisOpcoes.getScene().getWindow());
                 VerListaSalas controller =
@@ -462,7 +462,7 @@ public class Teste implements Initializable {
                 root = new FXMLLoader(
                         Teste.class.getResource("../fxml/verProfessor.fxml"));
                 stage.setScene(new Scene((Pane) root.load()));
-                stage.setTitle("Ver professor");
+                stage.setTitle("Professor");
                 stage.initModality(Modality.WINDOW_MODAL);
                 stage.initOwner(botaoMaisOpcoes.getScene().getWindow());
                 VerProfessor controller =
@@ -486,7 +486,7 @@ public class Teste implements Initializable {
                 root = new FXMLLoader(
                         Teste.class.getResource("../fxml/verInfo.fxml"));
                 stage.setScene(new Scene((Pane) root.load()));
-                stage.setTitle("Infos");
+                stage.setTitle("Horarios");
                 stage.initModality(Modality.WINDOW_MODAL);
                 stage.initOwner(botaoMaisOpcoes.getScene().getWindow());
                 Infos controller =
@@ -510,7 +510,7 @@ public class Teste implements Initializable {
                 root = new FXMLLoader(
                         Teste.class.getResource("../fxml/verInfo.fxml"));
                 stage.setScene(new Scene((Pane) root.load()));
-                stage.setTitle("Infos");
+                stage.setTitle("Materias");
                 stage.initModality(Modality.WINDOW_MODAL);
                 stage.initOwner(botaoMaisOpcoes.getScene().getWindow());
                 Infos controller =
@@ -534,7 +534,7 @@ public class Teste implements Initializable {
                 root = new FXMLLoader(
                         Teste.class.getResource("../fxml/verInfo.fxml"));
                 stage.setScene(new Scene((Pane) root.load()));
-                stage.setTitle("Infos");
+                stage.setTitle("Horarios");
                 stage.initModality(Modality.WINDOW_MODAL);
                 stage.initOwner(botaoMaisOpcoes.getScene().getWindow());
                 Infos controller =
@@ -558,7 +558,6 @@ public class Teste implements Initializable {
             Stage stage = new Stage();
             FXMLLoader root = null;
             try {
-                //// TODO: 07/12/2015 chamar Infos com  initTurmas
                 root = new FXMLLoader(
                         Teste.class.getResource("../fxml/verInfo.fxml"));
                 stage.setScene(new Scene((Pane) root.load()));
