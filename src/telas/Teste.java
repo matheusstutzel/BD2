@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -18,16 +19,18 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 /**
  * Created by Matheus on 15/10/2015.
  */
-public class Teste {
+public class Teste implements Initializable {
     public TableView table;
     public MenuButton menuTabela;
     public Label nomeTabela;
@@ -35,6 +38,18 @@ public class Teste {
     public Button botaoExcluir;
     public Button sair;
     public MenuButton botaoMaisOpcoes;
+    public MenuItem escolherFilial;
+    public MenuItem escolherTurma;
+    public MenuItem gradeHorarios;
+    public MenuItem listaAlunos;
+    public MenuItem listaSalas;
+    public MenuItem verProfessor;
+    public MenuItem escolherHorarios;
+    public MenuItem verTurma;
+    public MenuItem escolherMateria;
+    public MenuItem escolherHorario;
+    public MenuItem maisInfo;
+    public MenuItem verTurmaProf;
     private ObservableList<ObservableList> data;
     private ObservableList<Object> column;
 
@@ -109,6 +124,7 @@ public class Teste {
         final MenuItem m = ((MenuItem) actionEvent.getSource());
         nomeTabela.setText(m.getText());
         menuTabela.setText(m.getText());
+        ajustaBotao(m.getText());
         clearTable();
         new Thread(new Task<String>() {
             @Override
@@ -129,6 +145,45 @@ public class Teste {
                 super.failed();
             }
         }).start();
+    }
+
+    private void ajustaBotao(String text) {
+        String s = text.toLowerCase().trim();
+        escondeTodos();
+        if (s.equals("aluno")) {
+            escolherFilial.setVisible(true);
+            escolherTurma.setVisible(true);
+            gradeHorarios.setVisible(true);
+            maisInfo.setVisible(true);
+        } else if (s.equals("professor")) {
+            verTurmaProf.setVisible(true);
+            escolherMateria.setVisible(true);
+            escolherHorario.setVisible(true);
+            maisInfo.setVisible(true);
+            gradeHorarios.setVisible(true);
+        } else if (s.equals("filial")) {
+            listaAlunos.setVisible(true);
+            listaSalas.setVisible(true);
+
+        } else if (s.equals("turma")) {
+            verProfessor.setVisible(true);
+            escolherHorarios.setVisible(true);
+        }
+    }
+
+    private void escondeTodos() {
+        escolherFilial.setVisible(false);
+        escolherTurma.setVisible(false);
+        gradeHorarios.setVisible(false);
+        listaAlunos.setVisible(false);
+        listaSalas.setVisible(false);
+        verProfessor.setVisible(false);
+        escolherHorarios.setVisible(false);
+        verTurma.setVisible(false);
+        escolherMateria.setVisible(false);
+        escolherHorario.setVisible(false);
+        maisInfo.setVisible(false);
+        verTurmaProf.setVisible(false);
     }
 
     private void updateData() {
@@ -517,5 +572,10 @@ public class Teste {
                 e.printStackTrace();
             }
         } else new Alert(Alert.AlertType.WARNING, "Selecione uma linha da tabela abaixo").show();
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        escondeTodos();
     }
 }

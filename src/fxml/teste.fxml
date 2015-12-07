@@ -26,25 +26,30 @@
                 <Button fx:id="botaoExcluir" mnemonicParsing="false" onAction="#delete" text="-"/>
                 <MenuButton fx:id="botaoMaisOpcoes" mnemonicParsing="false" text="-----------">
                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#verEscolherFilial" text="Ver/Escolher Filial"/>
-                        <MenuItem mnemonicParsing="false" onAction="#verEscolherTurma" text="Ver/Escolher Turma"/>
-                        <MenuItem mnemonicParsing="false" onAction="#verGradeHorarios" text="Ver Grade de Horários"/>
-                        <MenuItem mnemonicParsing="false" onAction="#verListaAlunos"
+                        <MenuItem mnemonicParsing="false" onAction="#verEscolherFilial" text="Ver/Escolher Filial"
+                                  fx:id="escolherFilial"/>
+                        <MenuItem mnemonicParsing="false" onAction="#verEscolherTurma" text="Ver/Escolher Turma"
+                                  fx:id="escolherTurma"/>
+                        <MenuItem mnemonicParsing="false" onAction="#verGradeHorarios" text="Ver Grade de Horários"
+                                  fx:id="gradeHorarios"/>
+                        <MenuItem mnemonicParsing="false" onAction="#verListaAlunos" fx:id="listaAlunos"
                                   text="Ver Lista de Alunos"/> <!-- Filial !-->
-                        <MenuItem mnemonicParsing="false" onAction="#verListaSalas"
+                        <MenuItem mnemonicParsing="false" onAction="#verListaSalas" fx:id="listaSalas"
                                   text="Ver Lista de Salas"/>  <!-- Filial !-->
-                        <MenuItem mnemonicParsing="false" onAction="#verProfessor"
+                        <MenuItem mnemonicParsing="false" onAction="#verProfessor" fx:id="verProfessor"
                                   text="Ver Professor"/>  <!-- Turma !-->
-                        <MenuItem mnemonicParsing="false" onAction="#verEscolherHorarios"
+                        <MenuItem mnemonicParsing="false" onAction="#verEscolherHorarios" fx:id="escolherHorarios"
                                   text="Ver/Escolher Horários"/> <!-- Turma !-->
-                        <MenuItem mnemonicParsing="false" onAction="#verGradeHorarios" text="Ver Turma"/>
-                        <MenuItem mnemonicParsing="false" onAction="#verEscolherMateria"
+                        <MenuItem mnemonicParsing="false" onAction="#verGradeHorarios" text="Ver Turma"
+                                  fx:id="verTurma"/>
+                        <MenuItem mnemonicParsing="false" onAction="#verEscolherMateria" fx:id="escolherMateria"
                                   text="Ver/Escolher Matéria"/> <!-- Professor !-->
-                        <MenuItem mnemonicParsing="false" onAction="#verEscolherHorario"
+                        <MenuItem mnemonicParsing="false" onAction="#verEscolherHorario" fx:id="escolherHorario"
                                   text="Ver/Escolher Horário"/> <!-- Professor !-->
-                        <MenuItem mnemonicParsing="false" onAction="#verTurma"
+                        <MenuItem mnemonicParsing="false" onAction="#verTurma" fx:id="verTurmaProf"
                                   text="Ver Turma"/> <!-- Professor !-->
-                        <MenuItem mnemonicParsing="false" onAction="#maisInfos" text="Mais Informações"/>
+                        <MenuItem mnemonicParsing="false" onAction="#maisInfos" text="Mais Informações"
+                                  fx:id="maisInfo"/>
                     </items>
                 </MenuButton>
             </children>
