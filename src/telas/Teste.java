@@ -462,7 +462,7 @@ public class Teste implements Initializable {
                 root = new FXMLLoader(
                         Teste.class.getResource("../fxml/verProfessor.fxml"));
                 stage.setScene(new Scene((Pane) root.load()));
-                stage.setTitle("Ver Lista de Salas");
+                stage.setTitle("Ver professor");
                 stage.initModality(Modality.WINDOW_MODAL);
                 stage.initOwner(botaoMaisOpcoes.getScene().getWindow());
                 VerProfessor controller =
@@ -558,10 +558,11 @@ public class Teste implements Initializable {
             Stage stage = new Stage();
             FXMLLoader root = null;
             try {
+                //// TODO: 07/12/2015 chamar Infos com  initTurmas
                 root = new FXMLLoader(
                         Teste.class.getResource("../fxml/verTurma.fxml"));
                 stage.setScene(new Scene((Pane) root.load()));
-                stage.setTitle("Ver Lista de Salas");
+                stage.setTitle("Ver Turma");
                 stage.initModality(Modality.WINDOW_MODAL);
                 stage.initOwner(botaoMaisOpcoes.getScene().getWindow());
                 VerTurma controller =

@@ -131,6 +131,50 @@ public class Infos {
                 delete = DBHelper.criaDelete(nomeTabela.getText(), row, colunas);
                 System.out.println(delete);
             }
+            if (tipo == 1) {
+                //// TODO: 07/12/2015  
+                ArrayList<String> row = new ArrayList<String>();
+                row.add(((ObservableList) t.get(((TablePosition) o).getRow())).get(0).toString());
+                row.add(((ObservableList) t.get(((TablePosition) o).getRow())).get(2).toString());
+                ArrayList<String> colunas = new ArrayList<String>();
+                colunas.add(((TableColumn) (column).get(0)).getText());
+                colunas.add(((TableColumn) (column).get(2)).getText());
+                delete = DBHelper.criaDelete(nomeTabela.getText(), row, colunas);
+                System.out.println(delete);
+            }
+            if (tipo == 2) {
+                // TODO: 07/12/2015  
+                ArrayList<String> row = new ArrayList<String>();
+                row.add(((ObservableList) t.get(((TablePosition) o).getRow())).get(0).toString());
+                row.add(((ObservableList) t.get(((TablePosition) o).getRow())).get(2).toString());
+                ArrayList<String> colunas = new ArrayList<String>();
+                colunas.add(((TableColumn) (column).get(0)).getText());
+                colunas.add(((TableColumn) (column).get(2)).getText());
+                delete = DBHelper.criaDelete(nomeTabela.getText(), row, colunas);
+                System.out.println(delete);
+            }
+            if (tipo == 3) {
+                // TODO: 07/12/2015  
+                ArrayList<String> row = new ArrayList<String>();
+                row.add(((ObservableList) t.get(((TablePosition) o).getRow())).get(0).toString());
+                row.add(((ObservableList) t.get(((TablePosition) o).getRow())).get(2).toString());
+                ArrayList<String> colunas = new ArrayList<String>();
+                colunas.add(((TableColumn) (column).get(0)).getText());
+                colunas.add(((TableColumn) (column).get(2)).getText());
+                delete = DBHelper.criaDelete(nomeTabela.getText(), row, colunas);
+                System.out.println(delete);
+            }
+            if (tipo == 4) {
+                // TODO: 07/12/2015  
+                ArrayList<String> row = new ArrayList<String>();
+                row.add(((ObservableList) t.get(((TablePosition) o).getRow())).get(0).toString());
+                row.add(((ObservableList) t.get(((TablePosition) o).getRow())).get(2).toString());
+                ArrayList<String> colunas = new ArrayList<String>();
+                colunas.add(((TableColumn) (column).get(0)).getText());
+                colunas.add(((TableColumn) (column).get(2)).getText());
+                delete = DBHelper.criaDelete(nomeTabela.getText(), row, colunas);
+                System.out.println(delete);
+            }
             try {
                 if (DBHelper.getInstance().delete(delete))
                     t.remove(((TablePosition) o).getRow());
@@ -168,6 +212,11 @@ public class Infos {
                         root.<Disponivel>getController();
                 controller.init(info);
             } else if (tipo == 3) {
+                Leciona controller =
+                        root.<Leciona>getController();
+                controller.init(info);
+            } else if (tipo == 4) {
+                //todo 
                 Leciona controller =
                         root.<Leciona>getController();
                 controller.init(info);
@@ -209,5 +258,13 @@ public class Infos {
         init("Select * From Leciona Where matricula_professor=" + mat);
         nomeTabela.setText("Leciona");
         tipo = 3;
+    }
+
+    public void initTurmas(String mat) {
+        // TODO: 07/12/2015
+        info = mat;
+        init("Select * From Leciona Where matricula_professor=" + mat);
+        nomeTabela.setText("Leciona");
+        tipo = 4;
     }
 }
