@@ -34,7 +34,7 @@ public class AddEditarFilial extends Super implements Initializable {
     public void addEditFilial(ActionEvent actionEvent) {
         if (btText.equals("Mudar Filial")) {
             try {
-                c.createStatement().executeUpdate("UPDATE Vinculado set cod_filial=" + newFilial + ",matricula_aluno=" + matricula);
+                c.createStatement().executeUpdate("UPDATE Vinculado set cod_filial=" + newFilial + " Where matricula_aluno=" + matricula);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
